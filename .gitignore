@@ -1,0 +1,53 @@
+# Ignore Visual Studio temporary files, build results, and user-specific files
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+bld/
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio folders
+.vs/
+
+# Visual Studio generated files
+*.idb
+*.pdb
+*.ipdb
+*.ilk
+*.meta
+*.iobj
+*.pch
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tlh
+*.tmp
+*.log
+
+# Backup & report files
+*.bak
+*.orig
+*.mdf
+*.ldf
+
+# SQL Server files
+*.db
+
+# NuGet Packages
+packages/
+*.nupkg
+*.snupkg
+*.nuget.props
+*.nuget.targets
