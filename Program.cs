@@ -16,7 +16,12 @@ namespace Hospital_management_system
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+ patient-form
             Application.Run(new patientForm());
+
+
+            
+ main
         }
     }
 }

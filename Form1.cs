@@ -26,5 +26,12 @@ namespace Hospital_management_system
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            VisitForm vs = new VisitForm();
+            vs.Show();
+           
+        }
     }
 }
