@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,7 @@ using System.Windows.Forms;
 
 namespace Hospital_management_system
 {
+    [DebuggerDisplay("{" + nameof(GetDebuggerDisplay) + "(),nq}")]
     public partial class Form1 : Form
     {
         public Form1()
@@ -32,6 +34,23 @@ namespace Hospital_management_system
             VisitForm vs = new VisitForm();
             vs.Show();
            
+        }
+
+        private void btnEmployeeMangement_Click(object sender, EventArgs e)
+        {
+            Employee f = new Employee();
+            f.Show();
+        }
+
+        private string GetDebuggerDisplay()
+        {
+            return ToString();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            patientForm p=new patientForm();
+            p.Show();
         }
     }
 }

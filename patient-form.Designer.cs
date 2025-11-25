@@ -21,8 +21,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.topPanel = new System.Windows.Forms.Panel();
-            this.titleLabel = new System.Windows.Forms.Label();
             this.backButton = new System.Windows.Forms.Button();
+            this.titleLabel = new System.Windows.Forms.Label();
             this.addButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
@@ -50,18 +50,6 @@
             this.topPanel.Size = new System.Drawing.Size(1309, 79);
             this.topPanel.TabIndex = 0;
             // 
-            // titleLabel
-            // 
-            this.titleLabel.Font = new System.Drawing.Font("Segoe UI Black", 16F, System.Drawing.FontStyle.Bold);
-            this.titleLabel.ForeColor = System.Drawing.Color.Honeydew;
-            this.titleLabel.Location = new System.Drawing.Point(12, 9);
-            this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(363, 70);
-            this.titleLabel.TabIndex = 0;
-            this.titleLabel.Text = "patients management";
-            this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.titleLabel.Click += new System.EventHandler(this.titleLabel_Click);
-            // 
             // backButton
             // 
             this.backButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(62)))), ((int)(((byte)(79)))));
@@ -74,6 +62,19 @@
             this.backButton.TabIndex = 1;
             this.backButton.Text = "Back";
             this.backButton.UseVisualStyleBackColor = false;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            // 
+            // titleLabel
+            // 
+            this.titleLabel.Font = new System.Drawing.Font("Segoe UI Black", 16F, System.Drawing.FontStyle.Bold);
+            this.titleLabel.ForeColor = System.Drawing.Color.Honeydew;
+            this.titleLabel.Location = new System.Drawing.Point(12, 9);
+            this.titleLabel.Name = "titleLabel";
+            this.titleLabel.Size = new System.Drawing.Size(363, 70);
+            this.titleLabel.TabIndex = 0;
+            this.titleLabel.Text = "patients management";
+            this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.titleLabel.Click += new System.EventHandler(this.titleLabel_Click);
             // 
             // addButton
             // 

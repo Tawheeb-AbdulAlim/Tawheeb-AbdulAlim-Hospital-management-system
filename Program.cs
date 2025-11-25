@@ -19,6 +19,9 @@ namespace Hospital_management_system
             Application.Run(new Form1
                 ());
 
+            Application.Run(new Form1());
+
+
 
             
         }
