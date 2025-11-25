@@ -42,5 +42,11 @@ namespace Hospital_management_system
             Form1 f = new Form1();
             f.Show();
         }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            Addpatient ad = new Addpatient();
+            ad.Show();
+        }
     }
 }

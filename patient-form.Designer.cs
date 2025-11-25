@@ -89,6 +89,7 @@
             this.addButton.TabIndex = 1;
             this.addButton.Text = "Add Patient";
             this.addButton.UseVisualStyleBackColor = false;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // editButton
             // 
