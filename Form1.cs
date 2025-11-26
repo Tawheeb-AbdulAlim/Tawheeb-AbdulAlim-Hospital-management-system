@@ -33,5 +33,11 @@ namespace Hospital_management_system
             vs.Show();
            
         }
+
+        private void btnEmployeeMangement_Click(object sender, EventArgs e)
+        {
+            Employee f = new Employee();
+            f.Show();
+        }
     }
 }
