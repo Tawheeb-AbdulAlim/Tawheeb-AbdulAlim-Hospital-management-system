@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hospital_management_system.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -29,12 +30,28 @@ namespace Hospital_management_system
 
         private void Form2_Load(object sender, EventArgs e)
         {
+            using (hospitaldbcontext db = new hospitaldbcontext())
+            {
 
+                db.users.Add(new User { Username = "admin", PasswordHash = "admin" });
+                db.users.Add(new User { Username = "tawheeb", PasswordHash = "tawheeb" });
+                db.users.Add(new User { Username = "sadeg", PasswordHash = "sadeg" });
+                db.users.Add(new User { Username = "akram", PasswordHash = "akram" });
+                db.users.Add(new User { Username = "hamsa", PasswordHash = "hamsa" });
+                db.SaveChanges();
+
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
+
         {
-            if (password1.Text == "admin" && username1.Text == "admin")
+            string usermane=username1.Text;
+            string password=password1.Text;
+
+            hospitaldbcontext db = new hospitaldbcontext();
+            User u1= db.users.Where(u => u.Username == usermane && u.PasswordHash == password).FirstOrDefault();
+            if (u1!=null)
             {
                 
                Form1 form = new Form1();

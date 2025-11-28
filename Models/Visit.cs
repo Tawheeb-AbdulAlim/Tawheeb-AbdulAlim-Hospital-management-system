@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 //using System.ComponentModel.DataAnnotations;
 namespace Hospital_management_system.Models
 {
-    class Visit
+    public class Visit
     {
        //[Key]
    public int VisitId { get; set; }

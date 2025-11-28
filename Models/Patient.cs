@@ -17,9 +17,12 @@ namespace Hospital_management_system.Models
 
         // الخصائص الطبية الأساسية فقط
         public string BloodType { get; set; }        // فصيلة الدم
-        public string MedicalCondition { get; set; } // الحالة المرضية
+         
+       public virtual List<Visit> Visits { get; set; }      // خاصية التنقل للزيارات الطبية
+        public virtual List<Doctor> Doctors { get; set; }    // خاصية التنقل للأطباء المعالجين
 
-        // الطبيب المعالج
-        public string AssignedDoctor { get; set; }   // الطبيب المعالج
+        public int reseptionId { get; set; }      // رقم موضفه الاستقبال الطبية
+
+
     }
 }

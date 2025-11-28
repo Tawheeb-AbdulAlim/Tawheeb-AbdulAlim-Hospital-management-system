@@ -8,9 +8,9 @@ namespace Hospital_management_system.Models
 {
     public class Employee
     {
-        public int EmployeeId { get; set; }     // Primary Key
+               // Primary Key
         public string FullName { get; set; }
-        public string Role { get; set; }        // مثل: Receptionist, Admin, Doctor
+             
         public string Phone { get; set; }
         public string Email { get; set; }
         public decimal Salary { get; set; }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Hospital_management_system.Models
 {
-    class User
+    public class User
     {
         //[Key]
         public int UserId { get; set; }
