@@ -26,5 +26,25 @@ namespace Hospital_management_system
         {
 
         }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (password1.Text == "admin" && username1.Text == "admin")
+            {
+                
+               Form1 form = new Form1();
+                form.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("invalid enterd");
+            }
+        }
     }
 }

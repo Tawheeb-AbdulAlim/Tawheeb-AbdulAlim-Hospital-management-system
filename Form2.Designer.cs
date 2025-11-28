@@ -32,8 +32,8 @@
             this.username = new System.Windows.Forms.Label();
             this.password = new System.Windows.Forms.Label();
             this.LogIn = new System.Windows.Forms.GroupBox();
-            this.username1 = new System.Windows.Forms.TextBox();
             this.password1 = new System.Windows.Forms.TextBox();
+            this.username1 = new System.Windows.Forms.TextBox();
             this.LogIn.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,6 +46,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "login";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // username
             // 
@@ -84,19 +85,19 @@
             this.LogIn.TabStop = false;
             this.LogIn.Text = "LogIn";
             // 
-            // username1
-            // 
-            this.username1.Location = new System.Drawing.Point(30, 87);
-            this.username1.Name = "username1";
-            this.username1.Size = new System.Drawing.Size(251, 30);
-            this.username1.TabIndex = 3;
-            // 
             // password1
             // 
             this.password1.Location = new System.Drawing.Point(30, 168);
             this.password1.Name = "password1";
             this.password1.Size = new System.Drawing.Size(251, 30);
             this.password1.TabIndex = 4;
+            // 
+            // username1
+            // 
+            this.username1.Location = new System.Drawing.Point(30, 87);
+            this.username1.Name = "username1";
+            this.username1.Size = new System.Drawing.Size(251, 30);
+            this.username1.TabIndex = 3;
             // 
             // Form2
             // 
@@ -107,6 +108,7 @@
             this.Controls.Add(this.LogIn);
             this.Name = "Form2";
             this.Text = "Form2";
+            this.Load += new System.EventHandler(this.Form2_Load);
             this.LogIn.ResumeLayout(false);
             this.LogIn.PerformLayout();
             this.ResumeLayout(false);
