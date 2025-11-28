@@ -8,5 +8,6 @@ namespace Hospital_management_system.Services
 {
     class PatientManagement
     {
+
     }
 }
