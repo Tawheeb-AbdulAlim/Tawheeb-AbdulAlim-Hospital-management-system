@@ -33,13 +33,15 @@ namespace Hospital_management_system
         {
             VisitForm vs = new VisitForm();
             vs.Show();
-           
+            this.Hide();
+
         }
 
         private void btnEmployeeMangement_Click(object sender, EventArgs e)
         {
             Employee f = new Employee();
             f.Show();
+            this.Hide();
         }
 
         private string GetDebuggerDisplay()
@@ -51,6 +53,7 @@ namespace Hospital_management_system
         {
             patientForm p=new patientForm();
             p.Show();
+            this.Hide();
         }
     }
 }

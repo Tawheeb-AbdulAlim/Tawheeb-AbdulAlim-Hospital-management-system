@@ -35,6 +35,12 @@ namespace Hospital_management_system
         {
             Form1 f = new Form1();
             f.Show();
+            this.Hide();
+        }
+
+        private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
     

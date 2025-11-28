@@ -33,50 +33,49 @@
             // 
             // BtnOpenVisits
             // 
+            this.BtnOpenVisits.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.BtnOpenVisits.Font = new System.Drawing.Font("Tahoma", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnOpenVisits.Location = new System.Drawing.Point(105, 221);
-            this.BtnOpenVisits.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnOpenVisits.Location = new System.Drawing.Point(82, 186);
             this.BtnOpenVisits.Name = "BtnOpenVisits";
-            this.BtnOpenVisits.Size = new System.Drawing.Size(536, 79);
+            this.BtnOpenVisits.Size = new System.Drawing.Size(417, 67);
             this.BtnOpenVisits.TabIndex = 0;
             this.BtnOpenVisits.Text = "Visits Management";
-            this.BtnOpenVisits.UseVisualStyleBackColor = true;
+            this.BtnOpenVisits.UseVisualStyleBackColor = false;
             this.BtnOpenVisits.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnEmployeeMangement
             // 
+            this.btnEmployeeMangement.BackColor = System.Drawing.Color.Lime;
             this.btnEmployeeMangement.Font = new System.Drawing.Font("Tahoma", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEmployeeMangement.Location = new System.Drawing.Point(105, 340);
-            this.btnEmployeeMangement.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEmployeeMangement.Location = new System.Drawing.Point(82, 286);
             this.btnEmployeeMangement.Name = "btnEmployeeMangement";
-            this.btnEmployeeMangement.Size = new System.Drawing.Size(536, 80);
+            this.btnEmployeeMangement.Size = new System.Drawing.Size(417, 67);
             this.btnEmployeeMangement.TabIndex = 1;
             this.btnEmployeeMangement.Text = "Employees Management";
-            this.btnEmployeeMangement.UseVisualStyleBackColor = true;
+            this.btnEmployeeMangement.UseVisualStyleBackColor = false;
             this.btnEmployeeMangement.Click += new System.EventHandler(this.btnEmployeeMangement_Click);
             // 
             // BtnOpenPatient
             // 
+            this.BtnOpenPatient.BackColor = System.Drawing.Color.Yellow;
             this.BtnOpenPatient.Font = new System.Drawing.Font("Tahoma", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnOpenPatient.Location = new System.Drawing.Point(105, 99);
-            this.BtnOpenPatient.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnOpenPatient.Location = new System.Drawing.Point(82, 83);
             this.BtnOpenPatient.Name = "BtnOpenPatient";
-            this.BtnOpenPatient.Size = new System.Drawing.Size(536, 79);
+            this.BtnOpenPatient.Size = new System.Drawing.Size(417, 67);
             this.BtnOpenPatient.TabIndex = 2;
             this.BtnOpenPatient.Text = "Patients Management";
-            this.BtnOpenPatient.UseVisualStyleBackColor = true;
+            this.BtnOpenPatient.UseVisualStyleBackColor = false;
             this.BtnOpenPatient.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.ClientSize = new System.Drawing.Size(752, 534);
+            this.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.ClientSize = new System.Drawing.Size(585, 450);
             this.Controls.Add(this.BtnOpenPatient);
             this.Controls.Add(this.btnEmployeeMangement);
             this.Controls.Add(this.BtnOpenVisits);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);

@@ -58,8 +58,9 @@
             this.panel1.Controls.Add(this.lblTitleEmp);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1137, 92);
+            this.panel1.Size = new System.Drawing.Size(884, 77);
             this.panel1.TabIndex = 0;
             // 
             // backButtonEmp
@@ -68,9 +69,10 @@
             this.backButtonEmp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backButtonEmp.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backButtonEmp.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.backButtonEmp.Location = new System.Drawing.Point(1023, 22);
+            this.backButtonEmp.Location = new System.Drawing.Point(796, 19);
+            this.backButtonEmp.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.backButtonEmp.Name = "backButtonEmp";
-            this.backButtonEmp.Size = new System.Drawing.Size(111, 40);
+            this.backButtonEmp.Size = new System.Drawing.Size(86, 34);
             this.backButtonEmp.TabIndex = 2;
             this.backButtonEmp.Text = "Back";
             this.backButtonEmp.UseVisualStyleBackColor = false;
@@ -82,9 +84,10 @@
             this.lblTitleEmp.BackColor = System.Drawing.Color.DodgerBlue;
             this.lblTitleEmp.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitleEmp.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblTitleEmp.Location = new System.Drawing.Point(12, 15);
+            this.lblTitleEmp.Location = new System.Drawing.Point(9, 13);
+            this.lblTitleEmp.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTitleEmp.Name = "lblTitleEmp";
-            this.lblTitleEmp.Size = new System.Drawing.Size(373, 45);
+            this.lblTitleEmp.Size = new System.Drawing.Size(321, 37);
             this.lblTitleEmp.TabIndex = 0;
             this.lblTitleEmp.Text = "Employee Management";
             // 
@@ -96,9 +99,10 @@
             this.flowLayoutPanelEmp.Controls.Add(this.btnDelete);
             this.flowLayoutPanelEmp.Controls.Add(this.btnRefresh);
             this.flowLayoutPanelEmp.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanelEmp.Location = new System.Drawing.Point(0, 92);
+            this.flowLayoutPanelEmp.Location = new System.Drawing.Point(0, 77);
+            this.flowLayoutPanelEmp.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.flowLayoutPanelEmp.Name = "flowLayoutPanelEmp";
-            this.flowLayoutPanelEmp.Size = new System.Drawing.Size(1137, 60);
+            this.flowLayoutPanelEmp.Size = new System.Drawing.Size(884, 51);
             this.flowLayoutPanelEmp.TabIndex = 1;
             // 
             // btnAddEmp
@@ -108,9 +112,10 @@
             this.btnAddEmp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddEmp.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnAddEmp.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnAddEmp.Location = new System.Drawing.Point(3, 3);
+            this.btnAddEmp.Location = new System.Drawing.Point(2, 3);
+            this.btnAddEmp.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnAddEmp.Name = "btnAddEmp";
-            this.btnAddEmp.Size = new System.Drawing.Size(203, 40);
+            this.btnAddEmp.Size = new System.Drawing.Size(158, 34);
             this.btnAddEmp.TabIndex = 5;
             this.btnAddEmp.Text = "Add Employee";
             this.btnAddEmp.UseVisualStyleBackColor = false;
@@ -123,9 +128,10 @@
             this.btnEdite.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEdite.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnEdite.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnEdite.Location = new System.Drawing.Point(212, 3);
+            this.btnEdite.Location = new System.Drawing.Point(164, 3);
+            this.btnEdite.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnEdite.Name = "btnEdite";
-            this.btnEdite.Size = new System.Drawing.Size(184, 40);
+            this.btnEdite.Size = new System.Drawing.Size(143, 34);
             this.btnEdite.TabIndex = 6;
             this.btnEdite.Text = "Edit Employee";
             this.btnEdite.UseVisualStyleBackColor = false;
@@ -137,9 +143,10 @@
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnDelete.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnDelete.Location = new System.Drawing.Point(402, 3);
+            this.btnDelete.Location = new System.Drawing.Point(311, 3);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(209, 40);
+            this.btnDelete.Size = new System.Drawing.Size(163, 34);
             this.btnDelete.TabIndex = 7;
             this.btnDelete.Text = "Delete Employee";
             this.btnDelete.UseVisualStyleBackColor = false;
@@ -151,9 +158,10 @@
             this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRefresh.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnRefresh.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnRefresh.Location = new System.Drawing.Point(617, 3);
+            this.btnRefresh.Location = new System.Drawing.Point(478, 3);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(150, 40);
+            this.btnRefresh.Size = new System.Drawing.Size(117, 34);
             this.btnRefresh.TabIndex = 8;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = false;
@@ -193,15 +201,17 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridView.Location = new System.Drawing.Point(3, 158);
+            this.dataGridView.Location = new System.Drawing.Point(2, 133);
+            this.dataGridView.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dataGridView.MultiSelect = false;
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
             this.dataGridView.RowHeadersWidth = 62;
             this.dataGridView.RowTemplate.Height = 35;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(1122, 500);
+            this.dataGridView.Size = new System.Drawing.Size(873, 421);
             this.dataGridView.TabIndex = 6;
+            this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
             // ID
             // 
@@ -247,13 +257,14 @@
             // 
             // Employee
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(1137, 660);
+            this.ClientSize = new System.Drawing.Size(884, 556);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.flowLayoutPanelEmp);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "Employee";
             this.Text = "Employee";
             this.Load += new System.EventHandler(this.Employee_Load);
