@@ -21,6 +21,14 @@ namespace Hospital_management_system
                 ());
 
             
+<<<<<<< HEAD
+=======
+
+            Application.Run(new Form1());
+
+           // Application.Run(new SignIn());
+
+>>>>>>> 7eba1d10ded5757cb097ebcf37a0eed444b26696
 
 
 

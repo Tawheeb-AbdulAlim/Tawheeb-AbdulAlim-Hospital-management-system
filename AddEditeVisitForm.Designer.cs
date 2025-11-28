@@ -29,15 +29,16 @@
         private void InitializeComponent()
         {
             this.titleLabel = new System.Windows.Forms.Label();
-            this.patientComboBox = new System.Windows.Forms.ComboBox();
             this.textLabal1 = new System.Windows.Forms.Label();
             this.textLabal2 = new System.Windows.Forms.Label();
-            this.doctorComBox = new System.Windows.Forms.ComboBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.notesTextBox = new System.Windows.Forms.TextBox();
             this.cancelButton = new System.Windows.Forms.Button();
+            this.textPatient = new System.Windows.Forms.TextBox();
+            this.textDoctor = new System.Windows.Forms.TextBox();
+            this.btnSave = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // titleLabel
@@ -50,15 +51,6 @@
             this.titleLabel.Size = new System.Drawing.Size(204, 38);
             this.titleLabel.TabIndex = 0;
             this.titleLabel.Text = "Add New Visit";
-            // 
-            // patientComboBox
-            // 
-            this.patientComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.patientComboBox.FormattingEnabled = true;
-            this.patientComboBox.Location = new System.Drawing.Point(140, 80);
-            this.patientComboBox.Name = "patientComboBox";
-            this.patientComboBox.Size = new System.Drawing.Size(320, 24);
-            this.patientComboBox.TabIndex = 1;
             // 
             // textLabal1
             // 
@@ -80,20 +72,11 @@
             this.textLabal2.TabIndex = 3;
             this.textLabal2.Text = "Doctor:";
             // 
-            // doctorComBox
-            // 
-            this.doctorComBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.doctorComBox.FormattingEnabled = true;
-            this.doctorComBox.Location = new System.Drawing.Point(140, 130);
-            this.doctorComBox.Name = "doctorComBox";
-            this.doctorComBox.Size = new System.Drawing.Size(320, 24);
-            this.doctorComBox.TabIndex = 4;
-            // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.CustomFormat = "dd/MM/yyy HH:mm";
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(140, 180);
+            this.dateTimePicker1.Location = new System.Drawing.Point(113, 178);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(320, 24);
             this.dateTimePicker1.TabIndex = 5;
@@ -120,7 +103,7 @@
             // 
             // notesTextBox
             // 
-            this.notesTextBox.Location = new System.Drawing.Point(140, 230);
+            this.notesTextBox.Location = new System.Drawing.Point(113, 230);
             this.notesTextBox.Multiline = true;
             this.notesTextBox.Name = "notesTextBox";
             this.notesTextBox.Size = new System.Drawing.Size(320, 89);
@@ -132,28 +115,56 @@
             this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cancelButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelButton.ForeColor = System.Drawing.Color.White;
-            this.cancelButton.Location = new System.Drawing.Point(310, 410);
+            this.cancelButton.Location = new System.Drawing.Point(272, 470);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(150, 40);
             this.cancelButton.TabIndex = 9;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = false;
             // 
+            // textPatient
+            // 
+            this.textPatient.Location = new System.Drawing.Point(113, 80);
+            this.textPatient.Name = "textPatient";
+            this.textPatient.Size = new System.Drawing.Size(319, 24);
+            this.textPatient.TabIndex = 10;
+            // 
+            // textDoctor
+            // 
+            this.textDoctor.Location = new System.Drawing.Point(113, 130);
+            this.textDoctor.Name = "textDoctor";
+            this.textDoctor.Size = new System.Drawing.Size(319, 24);
+            this.textDoctor.TabIndex = 11;
+            // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.Location = new System.Drawing.Point(53, 470);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(150, 40);
+            this.btnSave.TabIndex = 12;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = false;
+            // 
             // AddEditeVisitForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(482, 503);
+            this.ClientSize = new System.Drawing.Size(482, 522);
+            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.textDoctor);
+            this.Controls.Add(this.textPatient);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.notesTextBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.doctorComBox);
             this.Controls.Add(this.textLabal2);
             this.Controls.Add(this.textLabal1);
-            this.Controls.Add(this.patientComboBox);
             this.Controls.Add(this.titleLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -170,14 +181,15 @@
         #endregion
 
         private System.Windows.Forms.Label titleLabel;
-        private System.Windows.Forms.ComboBox patientComboBox;
         private System.Windows.Forms.Label textLabal1;
         private System.Windows.Forms.Label textLabal2;
-        private System.Windows.Forms.ComboBox doctorComBox;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox notesTextBox;
         private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.TextBox textPatient;
+        private System.Windows.Forms.TextBox textDoctor;
+        private System.Windows.Forms.Button btnSave;
     }
 }

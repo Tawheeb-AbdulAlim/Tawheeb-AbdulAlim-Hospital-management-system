@@ -54,9 +54,8 @@
             this.topPan1.Controls.Add(this.titleLabe1);
             this.topPan1.Dock = System.Windows.Forms.DockStyle.Top;
             this.topPan1.Location = new System.Drawing.Point(0, 0);
-            this.topPan1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.topPan1.Name = "topPan1";
-            this.topPan1.Size = new System.Drawing.Size(1383, 95);
+            this.topPan1.Size = new System.Drawing.Size(1076, 80);
             this.topPan1.TabIndex = 0;
             // 
             // backButton
@@ -65,10 +64,9 @@
             this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backButton.ForeColor = System.Drawing.Color.White;
-            this.backButton.Location = new System.Drawing.Point(1221, 34);
-            this.backButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.backButton.Location = new System.Drawing.Point(950, 29);
             this.backButton.Name = "backButton";
-            this.backButton.Size = new System.Drawing.Size(129, 48);
+            this.backButton.Size = new System.Drawing.Size(100, 40);
             this.backButton.TabIndex = 1;
             this.backButton.Text = "Back";
             this.backButton.UseVisualStyleBackColor = false;
@@ -79,10 +77,9 @@
             this.titleLabe1.AutoSize = true;
             this.titleLabe1.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.titleLabe1.ForeColor = System.Drawing.Color.White;
-            this.titleLabe1.Location = new System.Drawing.Point(26, 24);
-            this.titleLabe1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.titleLabe1.Location = new System.Drawing.Point(20, 20);
             this.titleLabe1.Name = "titleLabe1";
-            this.titleLabe1.Size = new System.Drawing.Size(387, 54);
+            this.titleLabe1.Size = new System.Drawing.Size(319, 45);
             this.titleLabe1.TabIndex = 0;
             this.titleLabe1.Text = "Visits Management";
             // 
@@ -93,10 +90,9 @@
             this.buttonPane1.Controls.Add(this.deleteButton);
             this.buttonPane1.Controls.Add(this.editButton);
             this.buttonPane1.Controls.Add(this.addButton);
-            this.buttonPane1.Location = new System.Drawing.Point(8, 102);
-            this.buttonPane1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonPane1.Location = new System.Drawing.Point(6, 86);
             this.buttonPane1.Name = "buttonPane1";
-            this.buttonPane1.Size = new System.Drawing.Size(1342, 71);
+            this.buttonPane1.Size = new System.Drawing.Size(1044, 60);
             this.buttonPane1.TabIndex = 1;
             // 
             // updateButton
@@ -105,10 +101,9 @@
             this.updateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.updateButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.updateButton.ForeColor = System.Drawing.Color.White;
-            this.updateButton.Location = new System.Drawing.Point(684, 4);
-            this.updateButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.updateButton.Location = new System.Drawing.Point(532, 3);
             this.updateButton.Name = "updateButton";
-            this.updateButton.Size = new System.Drawing.Size(193, 48);
+            this.updateButton.Size = new System.Drawing.Size(150, 40);
             this.updateButton.TabIndex = 4;
             this.updateButton.Text = "Apdate Visit";
             this.updateButton.UseVisualStyleBackColor = false;
@@ -119,10 +114,9 @@
             this.deleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deleteButton.ForeColor = System.Drawing.Color.White;
-            this.deleteButton.Location = new System.Drawing.Point(456, 4);
-            this.deleteButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.deleteButton.Location = new System.Drawing.Point(355, 3);
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(193, 48);
+            this.deleteButton.Size = new System.Drawing.Size(150, 40);
             this.deleteButton.TabIndex = 3;
             this.deleteButton.Text = "Delete Visit";
             this.deleteButton.UseVisualStyleBackColor = false;
@@ -133,10 +127,9 @@
             this.editButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.editButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editButton.ForeColor = System.Drawing.Color.White;
-            this.editButton.Location = new System.Drawing.Point(228, 4);
-            this.editButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.editButton.Location = new System.Drawing.Point(177, 3);
             this.editButton.Name = "editButton";
-            this.editButton.Size = new System.Drawing.Size(193, 48);
+            this.editButton.Size = new System.Drawing.Size(150, 40);
             this.editButton.TabIndex = 2;
             this.editButton.Text = "Edit Visit";
             this.editButton.UseVisualStyleBackColor = false;
@@ -147,10 +140,9 @@
             this.addButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addButton.ForeColor = System.Drawing.Color.White;
-            this.addButton.Location = new System.Drawing.Point(10, 4);
-            this.addButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addButton.Location = new System.Drawing.Point(8, 3);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(193, 48);
+            this.addButton.Size = new System.Drawing.Size(150, 40);
             this.addButton.TabIndex = 2;
             this.addButton.Text = "Add Visit";
             this.addButton.UseVisualStyleBackColor = false;
@@ -170,14 +162,13 @@
             this.Doctor,
             this.Data,
             this.Notes});
-            this.dataGridView1.Location = new System.Drawing.Point(26, 214);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Location = new System.Drawing.Point(20, 180);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 26;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1324, 473);
+            this.dataGridView1.Size = new System.Drawing.Size(1030, 398);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -187,7 +178,6 @@
             this.VisiteID.MinimumWidth = 6;
             this.VisiteID.Name = "VisiteID";
             this.VisiteID.ReadOnly = true;
-            this.VisiteID.Visible = false;
             // 
             // Patient
             // 
@@ -195,7 +185,6 @@
             this.Patient.MinimumWidth = 6;
             this.Patient.Name = "Patient";
             this.Patient.ReadOnly = true;
-            this.Patient.Visible = false;
             // 
             // Doctor
             // 
@@ -203,15 +192,13 @@
             this.Doctor.MinimumWidth = 6;
             this.Doctor.Name = "Doctor";
             this.Doctor.ReadOnly = true;
-            this.Doctor.Visible = false;
             // 
             // Data
             // 
-            this.Data.HeaderText = "Data";
+            this.Data.HeaderText = "Date";
             this.Data.MinimumWidth = 6;
             this.Data.Name = "Data";
             this.Data.ReadOnly = true;
-            this.Data.Visible = false;
             // 
             // Notes
             // 
@@ -219,18 +206,16 @@
             this.Notes.MinimumWidth = 6;
             this.Notes.Name = "Notes";
             this.Notes.ReadOnly = true;
-            this.Notes.Visible = false;
             // 
             // VisitForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1383, 701);
+            this.ClientSize = new System.Drawing.Size(1076, 590);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.buttonPane1);
             this.Controls.Add(this.topPan1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "VisitForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VisitsManagement";
