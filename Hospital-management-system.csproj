@@ -56,12 +56,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddEditeVisitForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AddEditeVisitForm.Designer.cs">
-      <DependentUpon>AddEditeVisitForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="AddEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,9 +114,6 @@
     <Compile Include="VisitForm.designer.cs">
       <DependentUpon>VisitForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AddEditeVisitForm.resx">
-      <DependentUpon>AddEditeVisitForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="AddEmployee.resx">
       <DependentUpon>AddEmployee.cs</DependentUpon>
     </EmbeddedResource>
