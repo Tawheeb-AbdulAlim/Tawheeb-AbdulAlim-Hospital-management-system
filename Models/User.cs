@@ -22,7 +22,7 @@ namespace Hospital_management_system.Models
 
         //[Required]
        // [StringLength(50)]
-        public string Role { get; set; }
+        public Role Role { get; set; }
 
 
         //[Required]

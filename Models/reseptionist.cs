@@ -11,8 +11,7 @@ namespace Hospital_management_system.Models
         public int ReseptionistId { get; set; }      // Primary Key
        
        public virtual List<Patient>Patients { get; set; } // Navigation property
-       
-
+        
 
     }
 }

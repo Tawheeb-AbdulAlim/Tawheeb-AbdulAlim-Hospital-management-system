@@ -84,6 +84,7 @@
             this.LogIn.TabIndex = 3;
             this.LogIn.TabStop = false;
             this.LogIn.Text = "LogIn";
+            this.LogIn.Enter += new System.EventHandler(this.LogIn_Enter);
             // 
             // password1
             // 

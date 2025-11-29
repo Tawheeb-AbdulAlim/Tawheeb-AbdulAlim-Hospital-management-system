@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Hospital_management_system.Models;
+
 namespace Hospital_management_system.Services
 {
     public class PatientManagement
@@ -24,6 +25,11 @@ namespace Hospital_management_system.Services
         }
 
         // تحديث بيانات مريض
+
+        public bool add(Patient e) {
+            
+            return true;
+        }
         public bool UpdatePatient(Patient patient)
         {
             try

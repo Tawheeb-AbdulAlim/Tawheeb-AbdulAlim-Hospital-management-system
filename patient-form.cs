@@ -171,7 +171,7 @@ namespace Hospital_management_system
                     MessageBox.Show($"Patient {newPatient.FullName} added successfully!",
                                    "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadPatients();
-                    ClearFields();
+                    
                 }
                 else
                 {
@@ -253,7 +253,7 @@ namespace Hospital_management_system
         }
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            try
+            try 
             {
                 // ⚡️ احذف مباشرة من الصف المحدد
                 if (dataGridView.SelectedRows.Count > 0)
@@ -430,7 +430,7 @@ namespace Hospital_management_system
                         {
                             DisplayPatientData(selectedPatient);
 
-                            // ✅ تأكيد الاختيار بصرياً
+                            //  تأكيد الاختيار بصرياً
                             dataGridView.ClearSelection();
                             row.Selected = true;
                         }
@@ -476,6 +476,16 @@ namespace Hospital_management_system
         private void dataGridView_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
             // لا شيء - يمكن حذفها (مكررة)
+        }
+
+        private void cmbSearchType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblSearch_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -30,38 +30,38 @@ namespace Hospital_management_system
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            using (hospitaldbcontext db = new hospitaldbcontext())
-            {
-
-                db.users.Add(new User { Username = "admin", PasswordHash = "admin" });
-                db.users.Add(new User { Username = "tawheeb", PasswordHash = "tawheeb" });
-                db.users.Add(new User { Username = "sadeg", PasswordHash = "sadeg" });
-                db.users.Add(new User { Username = "akram", PasswordHash = "akram" });
-                db.users.Add(new User { Username = "hamsa", PasswordHash = "hamsa" });
-                db.SaveChanges();
-
-            }
+            hospitaldbcontext db=new hospitaldbcontext();
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
 
         {
+
             string usermane=username1.Text;
             string password=password1.Text;
 
-            hospitaldbcontext db = new hospitaldbcontext();
-            User u1= db.users.Where(u => u.Username == usermane && u.PasswordHash == password).FirstOrDefault();
-            if (u1!=null)
+            using (hospitaldbcontext db = new hospitaldbcontext())
             {
-                
-               Form1 form = new Form1();
-                form.Show();
-                this.Hide();
+                User u1 = db.users.Where(u => u.Username == usermane && u.PasswordHash == password).FirstOrDefault();
+
+                if (u1 != null)
+                {
+
+                    Form1 form = new Form1();
+                    form.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("invalid enterd");
+                }
             }
-            else
-            {
-                MessageBox.Show("invalid enterd");
-            }
+        }
+
+        private void LogIn_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

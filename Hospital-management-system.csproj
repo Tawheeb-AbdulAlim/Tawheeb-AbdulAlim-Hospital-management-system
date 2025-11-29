@@ -94,7 +94,16 @@
     <Compile Include="Migrations\202511282244096_intiaell.Designer.cs">
       <DependentUpon>202511282244096_intiaell.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202511292200041_add the role column to the doctor and reseptionest classes.cs" />
+    <Compile Include="Migrations\202511292200041_add the role column to the doctor and reseptionest classes.Designer.cs">
+      <DependentUpon>202511292200041_add the role column to the doctor and reseptionest classes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202511292229318_add the role to the employee and remove it form docator and employee.cs" />
+    <Compile Include="Migrations\202511292229318_add the role to the employee and remove it form docator and employee.Designer.cs">
+      <DependentUpon>202511292229318_add the role to the employee and remove it form docator and employee.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Role.cs" />
     <Compile Include="Models\reseptionist.cs" />
     <Compile Include="Models\hospitaldbcontext.cs" />
     <Compile Include="Models\Doctor.cs" />
@@ -140,6 +149,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202511282244096_intiaell.resx">
       <DependentUpon>202511282244096_intiaell.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202511292200041_add the role column to the doctor and reseptionest classes.resx">
+      <DependentUpon>202511292200041_add the role column to the doctor and reseptionest classes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202511292229318_add the role to the employee and remove it form docator and employee.resx">
+      <DependentUpon>202511292229318_add the role to the employee and remove it form docator and employee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="obj\Debug\Hospital_management_system.Form1.resources" />
     <EmbeddedResource Include="obj\Debug\Hospital_management_system.Properties.Resources.resources" />

@@ -14,5 +14,7 @@ namespace Hospital_management_system.Models
         public string Phone { get; set; }
         public string Email { get; set; }
         public decimal Salary { get; set; }
+        public  Role role { get; set; }
+        public Employee() { }
     }
 }
