@@ -51,7 +51,7 @@ namespace Hospital_management_system
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            patientForm p=new patientForm();
+            lblSearchBy p=new lblSearchBy();
             p.Show();
             this.Hide();
         }
