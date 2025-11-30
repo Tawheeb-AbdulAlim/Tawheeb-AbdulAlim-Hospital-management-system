@@ -1,12 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Hospital_management_system.Models;
 
 namespace Hospital_management_system.Services
 {
-    class EmployeeManagement
+    public class EmployeeManagement
     {
+        internal IEnumerable<object> GetAllEmployees()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal IEnumerable<object> SearchEmployee(string searchType, string searchValue)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal IEnumerable<object> SearchEmployees(string searchType, string searchValue)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
