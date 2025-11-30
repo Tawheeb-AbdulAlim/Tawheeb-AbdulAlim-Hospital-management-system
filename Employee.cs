@@ -43,7 +43,7 @@ namespace Hospital_management_system
                 }
                 if (!decimal.TryParse(txtSalaryEmpl.Text, out decimal salary) || salary <= 0)
                 {
-                    MessageBox.Show("please enert vilov salary", "Error");
+                    MessageBox.Show(" please please enert vilov salary", "Error");
                     txtSalaryEmpl.Focus();
                     return;
                 }
