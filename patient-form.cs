@@ -67,7 +67,7 @@ namespace Hospital_management_system
         }
 
         // دالة عرض بيانات المريض في الحقول - نسخة واحدة فقط
-        private void DisplayPatientData(Patient patient)
+       /* private void DisplayPatientData(Patient patient)
         {
             if (patient != null)
             {
@@ -82,7 +82,7 @@ namespace Hospital_management_system
                 // تحديث حالة الأزرار
                 
             }
-        }
+        }*/
 
         // دالة تفريغ البحث
         private void ClearSearch()
@@ -135,7 +135,7 @@ namespace Hospital_management_system
 
                         if (selectedPatient != null)
                         {
-                            DisplayPatientData(selectedPatient);
+                          //  DisplayPatientData(selectedPatient);
                         }
                     }
                 }
@@ -382,68 +382,8 @@ namespace Hospital_management_system
                 e.SuppressKeyPress = true;
             }
         }
-        // عند النقر على صف في الجدول - معدل
-        private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                if (e.RowIndex >= 0 && e.RowIndex < dataGridView.Rows.Count)
-                {
-                    DataGridViewRow row = dataGridView.Rows[e.RowIndex];
 
-                    // استخراج ID المريض من العمود الأول
-                    if (row.Cells["ID"].Value != null && int.TryParse(row.Cells["ID"].Value.ToString(), out int patientId))
-                    {
-                        selectedPatient = patientService.GetPatientById(patientId);
-                        if (selectedPatient != null)
-                        {
-                            DisplayPatientData(selectedPatient);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Patient not found in database!", "Error",
-                                          MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error selecting patient: {ex.Message}",
-                               "Selection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        // ⚡ إضافة حدث CellClick بدلاً من CellContentClick للاختيار الأفضل
-        private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                if (e.RowIndex >= 0 && e.RowIndex < dataGridView.Rows.Count)
-                {
-                    DataGridViewRow row = dataGridView.Rows[e.RowIndex];
-
-                    if (row.Cells["ID"].Value != null && int.TryParse(row.Cells["ID"].Value.ToString(), out int patientId))
-                    {
-                        selectedPatient = patientService.GetPatientById(patientId);
-                        if (selectedPatient != null)
-                        {
-                            DisplayPatientData(selectedPatient);
-
-                            // ✅ تأكيد الاختيار بصرياً
-                            dataGridView.ClearSelection();
-                            row.Selected = true;
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error selecting patient: {ex.Message}");
-            }
-        }
-
-
+        
         // عند تحميل الفورم
         private void patient_form_Load(object sender, EventArgs e)
         {

@@ -86,15 +86,6 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202511282200137_intialdatabase.cs" />
-    <Compile Include="Migrations\202511282200137_intialdatabase.Designer.cs">
-      <DependentUpon>202511282200137_intialdatabase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202511282244096_intiaell.cs" />
-    <Compile Include="Migrations\202511282244096_intiaell.Designer.cs">
-      <DependentUpon>202511282244096_intiaell.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\reseptionist.cs" />
     <Compile Include="Models\hospitaldbcontext.cs" />
     <Compile Include="Models\Doctor.cs" />
@@ -134,12 +125,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202511282200137_intialdatabase.resx">
-      <DependentUpon>202511282200137_intialdatabase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202511282244096_intiaell.resx">
-      <DependentUpon>202511282244096_intiaell.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="obj\Debug\Hospital_management_system.Form1.resources" />
     <EmbeddedResource Include="obj\Debug\Hospital_management_system.Properties.Resources.resources" />
