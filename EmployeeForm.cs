@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Hospital_management_system
 {
     public partial class Employeemanagement : Form
@@ -124,6 +125,11 @@ namespace Hospital_management_system
         {
             // كود بسيط للبحث
             MessageBox.Show("Search button clicked - Add your search logic here");
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

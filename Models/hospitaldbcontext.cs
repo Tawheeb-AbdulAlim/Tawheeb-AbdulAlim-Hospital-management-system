@@ -15,6 +15,6 @@ namespace Hospital_management_system.Models
         public DbSet<Visit> visits { get; set; }
         public DbSet<Doctor>doctors { get; set; }
         public DbSet<reseptionist> Reseptionists { get; set; }
-
+        
     }
 }
