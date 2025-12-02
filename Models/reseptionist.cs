@@ -12,7 +12,7 @@ namespace Hospital_management_system.Models
        
        public virtual List<Patient>Patients { get; set; } // Navigation property
        
-
+       
 
     }
 }
