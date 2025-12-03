@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,25 +15,40 @@ namespace Hospital_management_system
 {
     public partial class lblSearchBy : Form
     {
+        // ============ المتغيرات الأساسية ============
         private PatientManagement patientService = new PatientManagement();
         private Patient selectedPatient = null;
 
+        // ============ المنشئ ============
         public lblSearchBy()
         {
             InitializeComponent();
         }
 
+        // ============ دوال التحميل والتهيئة ============
+
+        /// <summary>
+        /// تحميل النموذج - يتم استدعاؤها عند فتح الشاشة
+        /// </summary>
+        private void patient_form_Load(object sender, EventArgs e)
+        {
+            LoadPatients();
+        }
+
+        /// <summary>
+        /// تحميل قائمة المرضى وعرضها في الجدول
+        /// </summary>
         private void LoadPatients()
         {
             try
             {
-                // ⚡️ مسح الصفوف فقط مع الحفاظ على الأعمدة
+                // مسح الجدول أولاً
                 dataGridView.Rows.Clear();
 
-                // ⚡️ جلب البيانات
+                // جلب جميع المرضى من قاعدة البيانات
                 var patients = patientService.GetAllPatients();
 
-                // ⚡️ إضافة البيانات مباشرة للجدول
+                // إضافة كل مريض إلى الجدول
                 foreach (var patient in patients)
                 {
                     dataGridView.Rows.Add(
@@ -47,11 +63,16 @@ namespace Hospital_management_system
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error: {ex.Message}");
+                MessageBox.Show($"خطأ في تحميل البيانات: {ex.Message}", "خطأ",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        // دالة تفريغ الحقول
+        // ============ دوال إدارة الحقول ============
+
+        /// <summary>
+        /// تفريغ جميع حقول إدخال البيانات
+        /// </summary>
         private void ClearFields()
         {
             fullName.Clear();
@@ -61,13 +82,22 @@ namespace Hospital_management_system
             cmbBloodType.SelectedIndex = -1;
             txtPatientId.Clear();
             selectedPatient = null;
-
-            // تحديث حالة الأزرار بعد التفريغ
-            
         }
 
-        // دالة عرض بيانات المريض في الحقول - نسخة واحدة فقط
-       /* private void DisplayPatientData(Patient patient)
+        /// <summary>
+        /// تفريغ حقول البحث
+        /// </summary>
+        private void ClearSearch()
+        {
+            txtSearchValue.Clear();
+            cmbSearchType.SelectedIndex = -1;
+        }
+
+        /// <summary>
+        /// عرض بيانات مريض محدد في الحقول
+        /// </summary>
+        /// <param name="patient">كائن المريض المراد عرض بياناته</param>
+        private void DisplayPatientData(Patient patient)
         {
             if (patient != null)
             {
@@ -78,49 +108,52 @@ namespace Hospital_management_system
                 txtPhone.Text = patient.Phone;
                 cmbBloodType.Text = patient.BloodType;
                 selectedPatient = patient;
-
-                // تحديث حالة الأزرار
-                
             }
-        }*/
-
-        // دالة تفريغ البحث
-        private void ClearSearch()
-        {
-            txtSearchValue.Clear();
-            cmbSearchType.SelectedIndex = -1;
         }
 
-        // دالة التحقق من صحة البيانات
+        // ============ دوال التحقق من الصحة ============
+
+        /// <summary>
+        /// التحقق من صحة البيانات المدخلة قبل الحفظ
+        /// </summary>
+        /// <returns>صحيح إذا كانت البيانات صحيحة، خطأ إذا كانت غير صالحة</returns>
         private bool ValidatePatientData()
         {
+            // التحقق من الاسم
             if (string.IsNullOrWhiteSpace(fullName.Text))
             {
-                MessageBox.Show("Please enter patient name", "Validation Error",
-                              MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("الرجاء إدخال اسم المريض", "خطأ في التحقق",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 fullName.Focus();
                 return false;
             }
 
+            // التحقق من رقم الهاتف
             if (string.IsNullOrWhiteSpace(txtPhone.Text))
             {
-                MessageBox.Show("Please enter phone number", "Validation Error",
-                              MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("الرجاء إدخال رقم الهاتف", "خطأ في التحقق",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtPhone.Focus();
                 return false;
             }
 
+            // التحقق من العمر
             if (numAge.Value <= 0 || numAge.Value > 120)
             {
-                MessageBox.Show("Please enter valid age (1-120)", "Validation Error",
-                              MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("الرجاء إدخال عمر صحيح (1-120)", "خطأ في التحقق",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 numAge.Focus();
                 return false;
             }
 
             return true;
         }
-        // ⚡️ حدث عند تغيير الاختيار في الجدول
+
+        // ============ معالجة أحداث الجدول ============
+
+        /// <summary>
+        /// تحديث الحقول عند اختيار مريض من الجدول
+        /// </summary>
         private void dataGridView_SelectionChanged(object sender, EventArgs e)
         {
             try
@@ -128,32 +161,40 @@ namespace Hospital_management_system
                 if (dataGridView.SelectedRows.Count > 0)
                 {
                     DataGridViewRow row = dataGridView.SelectedRows[0];
-                    if (row.Cells["ID"].Value != null && !string.IsNullOrEmpty(row.Cells["ID"].Value.ToString()))
+
+                    if (row.Cells["ID"].Value != null &&
+                        !string.IsNullOrEmpty(row.Cells["ID"].Value.ToString()))
                     {
                         int patientId = Convert.ToInt32(row.Cells["ID"].Value);
                         selectedPatient = patientService.GetPatientById(patientId);
 
                         if (selectedPatient != null)
                         {
-                          //  DisplayPatientData(selectedPatient);
+                            DisplayPatientData(selectedPatient);
                         }
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 // تجاهل الأخطاء البسيطة في الاختيار
             }
         }
 
+        // ============ أحداث الأزرار الرئيسية ============
 
-        // زر الإضافة
+        /// <summary>
+        /// إضافة مريض جديد - زر الإضافة
+        /// </summary>
         private void addButton_Click(object sender, EventArgs e)
         {
             try
             {
+                // التحقق من صحة البيانات
                 if (!ValidatePatientData())
                     return;
+
+                // إنشاء كائن المريض الجديد
                 Patient newPatient = new Patient
                 {
                     FullName = fullName.Text.Trim(),
@@ -161,42 +202,49 @@ namespace Hospital_management_system
                     Gender = cmbGender.SelectedItem?.ToString() ?? "Male",
                     Phone = txtPhone.Text.Trim(),
                     BloodType = cmbBloodType.SelectedItem?.ToString() ?? "A+",
-                    reseptionId = 1
+                    reseptionId = 1  // افتراضياً موظف الاستقبال رقم 1
                 };
 
+                // محاولة الحفظ في قاعدة البيانات
                 bool success = patientService.AddPatient(newPatient);
 
                 if (success)
                 {
-                    MessageBox.Show($"Patient {newPatient.FullName} added successfully!",
-                                   "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show($"تم إضافة المريض {newPatient.FullName} بنجاح",
+                        "تمت العملية", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // تحديث العرض
                     LoadPatients();
                     ClearFields();
                 }
                 else
                 {
-                    MessageBox.Show("Failed to add patient. Please try again.",
-                                   "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("فشل في إضافة المريض. الرجاء المحاولة مرة أخرى",
+                        "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error adding patient: {ex.Message}",
-                               "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"خطأ في إضافة المريض: {ex.Message}",
+                    "خطأ في قاعدة البيانات", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
+        /// <summary>
+        /// تعديل بيانات مريض - زر التعديل
+        /// </summary>
         private void editButton_Click(object sender, EventArgs e)
         {
             try
             {
-                // ⚡️ تحديث مباشرة من البيانات في الحقول
+                // التحقق من وجود مريض محدد
                 if (dataGridView.SelectedRows.Count > 0 || selectedPatient != null)
                 {
+                    // التحقق من صحة البيانات
                     if (!ValidatePatientData())
                         return;
 
-                    // إذا كان هناك مريض محدد، استخدمه. وإلا خذ من الجدول
+                    // تحديد المريض المراد تعديله
                     Patient patientToUpdate = selectedPatient;
 
                     if (patientToUpdate == null && dataGridView.SelectedRows.Count > 0)
@@ -211,61 +259,67 @@ namespace Hospital_management_system
 
                     if (patientToUpdate != null)
                     {
-                        // تحديث البيانات من الحقول
+                        // تحديث بيانات المريض
                         patientToUpdate.FullName = fullName.Text.Trim();
                         patientToUpdate.Age = (int)numAge.Value;
                         patientToUpdate.Gender = cmbGender.SelectedItem?.ToString() ?? "Male";
                         patientToUpdate.Phone = txtPhone.Text.Trim();
                         patientToUpdate.BloodType = cmbBloodType.SelectedItem?.ToString() ?? "A+";
 
+                        // حفظ التعديلات
                         bool success = patientService.UpdatePatient(patientToUpdate);
 
                         if (success)
                         {
-                            MessageBox.Show($"Patient {patientToUpdate.FullName} updated successfully!",
-                                           "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show($"تم تحديث بيانات المريض {patientToUpdate.FullName} بنجاح",
+                                "تمت العملية", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            // تحديث العرض
                             LoadPatients();
                             ClearFields();
                         }
                         else
                         {
-                            MessageBox.Show("Failed to update patient. Please try again.",
-                                           "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("فشل في تحديث بيانات المريض. الرجاء المحاولة مرة أخرى",
+                                "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Please select a patient to update",
-                                      "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Please select a patient to update",
-                                  "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("الرجاء اختيار مريض للتعديل",
+                        "اختيار مطلوب", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error updating patient: {ex.Message}",
-                               "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"خطأ في تحديث المريض: {ex.Message}",
+                    "خطأ في قاعدة البيانات", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        /// <summary>
+        /// حذف مريض - زر الحذف
+        /// </summary>
         private void deleteButton_Click(object sender, EventArgs e)
         {
             try
             {
-                // ⚡️ احذف مباشرة من الصف المحدد
                 if (dataGridView.SelectedRows.Count > 0)
                 {
                     DataGridViewRow row = dataGridView.SelectedRows[0];
+
                     if (row.Cells["ID"].Value != null)
                     {
                         int patientId = Convert.ToInt32(row.Cells["ID"].Value);
-                        string patientName = row.Cells["fullNameColumn"].Value?.ToString() ?? "Unknown";
+                        string patientName = row.Cells["fullNameColumn"].Value?.ToString() ?? "غير معروف";
 
-                        var result = MessageBox.Show($"Are you sure you want to delete patient: {patientName}?",
-                                                   "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        // طلب تأكيد الحذف
+                        var result = MessageBox.Show(
+                            $"هل أنت متأكد من حذف المريض: {patientName}؟",
+                            "تأكيد الحذف",
+                            MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -273,33 +327,37 @@ namespace Hospital_management_system
 
                             if (success)
                             {
-                                MessageBox.Show($"Patient {patientName} deleted successfully!",
-                                               "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show($"تم حذف المريض {patientName} بنجاح",
+                                    "تمت العملية", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                // تحديث العرض
                                 LoadPatients();
                                 ClearFields();
                             }
                             else
                             {
-                                MessageBox.Show("Failed to delete patient. Please try again.",
-                                               "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show("فشل في حذف المريض. الرجاء المحاولة مرة أخرى",
+                                    "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Please select a patient row to delete",
-                                  "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("الرجاء اختيار مريض للحذف",
+                        "اختيار مطلوب", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error deleting patient: {ex.Message}",
-                               "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"خطأ في حذف المريض: {ex.Message}",
+                    "خطأ في قاعدة البيانات", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        // زر التحديث
+        /// <summary>
+        /// تحديث البيانات وعرضها من جديد - زر التحديث
+        /// </summary>
         private void refreshButton_Click(object sender, EventArgs e)
         {
             try
@@ -307,17 +365,22 @@ namespace Hospital_management_system
                 LoadPatients();
                 ClearFields();
                 ClearSearch();
-                MessageBox.Show("Data refreshed successfully!",
-                               "Refresh", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                MessageBox.Show("تم تحديث البيانات بنجاح",
+                    "تحديث", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error refreshing data: {ex.Message}",
-                               "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"خطأ في تحديث البيانات: {ex.Message}",
+                    "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        // زر البحث - معدل
+        // ============ دوال البحث ============
+
+        /// <summary>
+        /// البحث عن مرضى - زر البحث
+        /// </summary>
         private void btnSearch_Click(object sender, EventArgs e)
         {
             try
@@ -325,28 +388,29 @@ namespace Hospital_management_system
                 string searchType = cmbSearchType.SelectedItem?.ToString();
                 string searchValue = txtSearchValue.Text.Trim();
 
+                // التحقق من إدخال نوع البحث
                 if (string.IsNullOrEmpty(searchType))
                 {
-                    MessageBox.Show("Please select search type", "Search",
-                                  MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("الرجاء اختيار نوع البحث", "بحث",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     cmbSearchType.Focus();
                     return;
                 }
 
+                // التحقق من إدخال قيمة البحث
                 if (string.IsNullOrEmpty(searchValue))
                 {
-                    MessageBox.Show("Please enter search value", "Search",
-                                  MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("الرجاء إدخال قيمة البحث", "بحث",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtSearchValue.Focus();
                     return;
                 }
 
-                // البحث باستخدام الخدمة
+                // تنفيذ البحث
                 var patients = patientService.SearchPatients(searchType, searchValue);
 
-                // عرض النتائج بنفس طريقة التحميل العادية
+                // عرض النتائج
                 dataGridView.Rows.Clear();
-
                 foreach (var patient in patients)
                 {
                     dataGridView.Rows.Add(
@@ -359,20 +423,23 @@ namespace Hospital_management_system
                     );
                 }
 
+                // عرض رسالة إذا لم توجد نتائج
                 if (patients.Count == 0)
                 {
-                    MessageBox.Show("No patients found with the specified criteria",
-                                  "Search Result", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("لم يتم العثور على مرضى مطابقين لمعايير البحث",
+                        "نتيجة البحث", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error during search: {ex.Message}",
-                               "Search Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"خطأ أثناء البحث: {ex.Message}",
+                    "خطأ في البحث", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        // البحث عند الضغط على Enter
+        /// <summary>
+        /// تفعيل البحث بالضغط على زر Enter في حقل البحث
+        /// </summary>
         private void txtSearchValue_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -383,39 +450,16 @@ namespace Hospital_management_system
             }
         }
 
-        
-        // عند تحميل الفورم
-        private void patient_form_Load(object sender, EventArgs e)
-        {
-            LoadPatients();
-          
-        }
+        // ============ دوال التنقل ============
 
-        private void titleLabel_Click(object sender, EventArgs e)
-        {
-            // لا شيء - يمكن حذفها
-        }
-
+        /// <summary>
+        /// العودة إلى الشاشة الرئيسية - زر الرجوع
+        /// </summary>
         private void backButton_Click(object sender, EventArgs e)
         {
             Form1 f = new Form1();
             f.Show();
             this.Hide();
-        }
-
-        // هذه الدوال يمكن حذفها إذا لم تستخدم
-        private void button2_Click(object sender, EventArgs e)
-        {
-            // لا شيء - يمكن حذفها
-        }
-
-        private void cancelButton_Click(object sender, EventArgs e)
-        {
-            // لا شيء - يمكن حذفها
-        }
-        private void dataGridView_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-            // لا شيء - يمكن حذفها (مكررة)
         }
     }
 }

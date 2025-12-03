@@ -91,7 +91,7 @@
             this.titleLabel.TabIndex = 0;
             this.titleLabel.Text = "patients management";
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.titleLabel.Click += new System.EventHandler(this.titleLabel_Click);
+            //this.titleLabel.Click += new System.EventHandler(this.titleLabel_Click);
             // 
             // addButton
             // 
@@ -359,7 +359,7 @@
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView.Size = new System.Drawing.Size(569, 269);
             this.dataGridView.TabIndex = 47;
-            this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick_1);
+            //this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick_1);
             this.dataGridView.SelectionChanged += new System.EventHandler(this.dataGridView_SelectionChanged);
             // 
             // ID
