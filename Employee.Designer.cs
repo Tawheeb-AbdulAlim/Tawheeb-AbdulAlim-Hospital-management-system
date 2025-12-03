@@ -5,6 +5,9 @@ namespace Hospital_management_system
 {
     partial class Employeemanagement:Form
     {
+
+
+
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -59,6 +62,10 @@ namespace Hospital_management_system
             this.txtsearchEmp = new System.Windows.Forms.TextBox();
             this.cmbSearchTypEmp = new System.Windows.Forms.ComboBox();
             this.lblSearch = new System.Windows.Forms.TextBox();
+            this.role = new System.Windows.Forms.Label();
+            this.cmRole = new System.Windows.Forms.ComboBox();
+            this.searchrole = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numAgeEmpl)).BeginInit();
@@ -346,7 +353,7 @@ namespace Hospital_management_system
             // 
             // btnSearchEmp
             // 
-            this.btnSearchEmp.Location = new System.Drawing.Point(731, 141);
+            this.btnSearchEmp.Location = new System.Drawing.Point(854, 142);
             this.btnSearchEmp.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnSearchEmp.Name = "btnSearchEmp";
             this.btnSearchEmp.Size = new System.Drawing.Size(58, 30);
@@ -356,10 +363,10 @@ namespace Hospital_management_system
             // 
             // txtsearchEmp
             // 
-            this.txtsearchEmp.Location = new System.Drawing.Point(483, 147);
+            this.txtsearchEmp.Location = new System.Drawing.Point(687, 144);
             this.txtsearchEmp.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtsearchEmp.Name = "txtsearchEmp";
-            this.txtsearchEmp.Size = new System.Drawing.Size(126, 24);
+            this.txtsearchEmp.Size = new System.Drawing.Size(163, 24);
             this.txtsearchEmp.TabIndex = 49;
             // 
             // cmbSearchTypEmp
@@ -370,7 +377,7 @@ namespace Hospital_management_system
             "ID",
             "Name",
             "Phone"});
-            this.cmbSearchTypEmp.Location = new System.Drawing.Point(416, 147);
+            this.cmbSearchTypEmp.Location = new System.Drawing.Point(461, 144);
             this.cmbSearchTypEmp.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.cmbSearchTypEmp.Name = "cmbSearchTypEmp";
             this.cmbSearchTypEmp.Size = new System.Drawing.Size(63, 24);
@@ -378,12 +385,56 @@ namespace Hospital_management_system
             // 
             // lblSearch
             // 
-            this.lblSearch.Location = new System.Drawing.Point(347, 147);
+            this.lblSearch.Location = new System.Drawing.Point(391, 144);
             this.lblSearch.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.lblSearch.Name = "lblSearch";
             this.lblSearch.Size = new System.Drawing.Size(76, 24);
             this.lblSearch.TabIndex = 47;
             this.lblSearch.Text = "Search By";
+            // 
+            // role
+            // 
+            this.role.AutoSize = true;
+            this.role.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.role.Location = new System.Drawing.Point(27, 418);
+            this.role.Name = "role";
+            this.role.Size = new System.Drawing.Size(48, 21);
+            this.role.TabIndex = 51;
+            this.role.Text = "Role";
+            this.role.UseMnemonic = false;
+            // 
+            // cmRole
+            // 
+            this.cmRole.FormattingEnabled = true;
+            this.cmRole.Items.AddRange(new object[] {
+            "DOCTOR",
+            "RESEPTIONIST"});
+            this.cmRole.Location = new System.Drawing.Point(88, 411);
+            this.cmRole.Name = "cmRole";
+            this.cmRole.Size = new System.Drawing.Size(212, 24);
+            this.cmRole.TabIndex = 52;
+            // 
+            // searchrole
+            // 
+            this.searchrole.FormattingEnabled = true;
+            this.searchrole.Items.AddRange(new object[] {
+            "DOCTOR",
+            "RESEPTIONIST"});
+            this.searchrole.Location = new System.Drawing.Point(583, 141);
+            this.searchrole.Name = "searchrole";
+            this.searchrole.Size = new System.Drawing.Size(121, 24);
+            this.searchrole.TabIndex = 53;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(544, 142);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(43, 21);
+            this.label1.TabIndex = 54;
+            this.label1.Text = "Role";
+            this.label1.UseMnemonic = false;
             // 
             // Employeemanagement
             // 
@@ -391,6 +442,10 @@ namespace Hospital_management_system
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(934, 556);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.searchrole);
+            this.Controls.Add(this.cmRole);
+            this.Controls.Add(this.role);
             this.Controls.Add(this.btnSearchEmp);
             this.Controls.Add(this.txtsearchEmp);
             this.Controls.Add(this.cmbSearchTypEmp);
@@ -414,7 +469,6 @@ namespace Hospital_management_system
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "Employeemanagement";
             this.Text = "Employee";
-            this.Load += new System.EventHandler(this.Employee_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -469,5 +523,9 @@ namespace Hospital_management_system
         private System.Windows.Forms.TextBox txtsearchEmp;
         private System.Windows.Forms.ComboBox cmbSearchTypEmp;
         private System.Windows.Forms.TextBox lblSearch;
+        private Label role;
+        private ComboBox cmRole;
+        private ComboBox searchrole;
+        private Label label1;
     }
 }
