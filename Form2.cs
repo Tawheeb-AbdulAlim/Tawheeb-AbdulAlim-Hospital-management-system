@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Hospital_management_system
 {
@@ -46,9 +47,9 @@ namespace Hospital_management_system
         private void button1_Click(object sender, EventArgs e)
 
         {
-            string usermane=username1.Text;
-            string password=password1.Text;
-           // تحقق من أن الحقول ليست فارغة
+            string usermane = username1.Text.Trim();
+            string password = password1.Text.Trim();
+            // تحقق من أن الحقول ليست فارغة
             if (string.IsNullOrEmpty(usermane) || string.IsNullOrEmpty(password))
             {
                 MessageBox.Show("⚠️ الرجاء ملء كل الحقول!", "تنبيه",
@@ -56,22 +57,32 @@ namespace Hospital_management_system
                 return;
             }
 
+            
 
+                            hospitaldbcontext db = new hospitaldbcontext();
+                        User u1 = db.users.Where(u => u.Username == usermane && u.PasswordHash == password).FirstOrDefault();
+                            if (u1 != null)
+                            {
 
-            hospitaldbcontext db = new hospitaldbcontext();
-            User u1= db.users.Where(u => u.Username == usermane && u.PasswordHash == password).FirstOrDefault();
-            if (u1!=null)
-            {
-                
-               Form1 form = new Form1();
-                form.Show();
-                this.Hide();
-            }
-            else
-            {
-                MessageBox.Show("خطاء في اسم المستخدم او كلمة المرور");
-            }
-        }
+                                Form1 form = new Form1();
+                                form.Show();
+                                this.Hide();
+                            }
+                     
+
+                        else
+                        {
+                            MessageBox.Show("❌ اسم المستخدم أو كلمة المرور غير صحيحة. حاول مرة أخرى.");
+                            username1.Clear();
+                            password1.Focus();
+                        }
+                    
+                }
+
+            
+
+        
+
 
         private async void password1_TextChanged(object sender, EventArgs e)
         {
