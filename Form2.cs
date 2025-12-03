@@ -48,6 +48,15 @@ namespace Hospital_management_system
         {
             string usermane=username1.Text;
             string password=password1.Text;
+           // تحقق من أن الحقول ليست فارغة
+            if (string.IsNullOrEmpty(usermane) || string.IsNullOrEmpty(password))
+            {
+                MessageBox.Show("⚠️ الرجاء ملء كل الحقول!", "تنبيه",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+
 
             hospitaldbcontext db = new hospitaldbcontext();
             User u1= db.users.Where(u => u.Username == usermane && u.PasswordHash == password).FirstOrDefault();
@@ -60,8 +69,25 @@ namespace Hospital_management_system
             }
             else
             {
-                MessageBox.Show("invalid enterd");
+                MessageBox.Show("خطاء في اسم المستخدم او كلمة المرور");
             }
+        }
+
+        private async void password1_TextChanged(object sender, EventArgs e)
+        {
+
+            // نخلي الحروف تظهر مؤقتاً
+            password1.UseSystemPasswordChar = false;
+
+            // ننتظر 700 مللي ثانية (0.7 ثانية)
+            await Task.Delay(500);
+
+            // نخفي النص بالنجوم
+            password1.UseSystemPasswordChar = true;
+
+            // نحافظ على النص والمؤشر في النهاية
+            password1.SelectionStart = password1.Text.Length;
+
         }
     }
 }

@@ -29,8 +29,6 @@ namespace Hospital_management_system.Models
         // [StringLength(50)]
         //الادوية الحالية
         public string CurrentMedication { get; set; }
-
-
         public string Notes { get; set; }
 
 

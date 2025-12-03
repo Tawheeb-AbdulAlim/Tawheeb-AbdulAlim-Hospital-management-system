@@ -17,7 +17,7 @@ namespace Hospital_management_system.Services
     public class EmployeeManagement
     {
 
-        hospitaldbcontext db = new hospitaldbcontext();
+       private hospitaldbcontext db = new hospitaldbcontext();
         public bool addemployee(Employee employee)
         {
             try
@@ -48,7 +48,7 @@ namespace Hospital_management_system.Services
 
 
 
-      /*  public bool updateEmployee(Employee employee)
+      public bool updateEmployee(Employee employee)
         {
             return false;
             try
@@ -92,7 +92,7 @@ namespace Hospital_management_system.Services
 
         }
         
-        */
+        
 
 
         public bool deletemployee(int employeeid, Role role)

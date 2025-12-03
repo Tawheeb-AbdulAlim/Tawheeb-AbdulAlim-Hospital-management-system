@@ -496,22 +496,9 @@ namespace Hospital_management_system
 
         }
 
+        private void topPan1_Paint_1(object sender, PaintEventArgs e)
+        {
 
-
-
-
-
-
-
-
-
-
-
-
-        
-
-
-
-
+        }
     }
 }

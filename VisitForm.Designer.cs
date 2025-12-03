@@ -31,20 +31,6 @@
             this.topPan1 = new System.Windows.Forms.Panel();
             this.backButton = new System.Windows.Forms.Button();
             this.titleLabe1 = new System.Windows.Forms.Label();
-
-           // this.buttonPane1 = new System.Windows.Forms.Panel();
-            //this.updateButton = new System.Windows.Forms.Button();
-           // this.deleteButton = new System.Windows.Forms.Button();
-           // this.editButton = new System.Windows.Forms.Button();
-           // this.addButton = new System.Windows.Forms.Button();
-         /*  this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.VisiteID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Patient = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Doctor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Data = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Notes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            */
-
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.VisitID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PatientID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -75,7 +61,6 @@
             this.editButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
-
             this.topPan1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -88,11 +73,9 @@
             this.topPan1.Dock = System.Windows.Forms.DockStyle.Top;
             this.topPan1.Location = new System.Drawing.Point(0, 0);
             this.topPan1.Name = "topPan1";
-
             this.topPan1.Size = new System.Drawing.Size(1282, 80);
-
             this.topPan1.TabIndex = 0;
-           // this.topPan1.Paint += new System.Windows.Forms.PaintEventHandler(this.topPan1_Paint);
+            this.topPan1.Paint += new System.Windows.Forms.PaintEventHandler(this.topPan1_Paint_1);
             // 
             // backButton
             // 
@@ -119,76 +102,6 @@
             this.titleLabe1.TabIndex = 0;
             this.titleLabe1.Text = "Visits Management";
             // 
-
-            // buttonPane1
-            // 
-            /*
-            this.buttonPane1.BackColor = System.Drawing.Color.Transparent;
-            this.buttonPane1.Controls.Add(this.updateButton);
-            this.buttonPane1.Controls.Add(this.deleteButton);
-            this.buttonPane1.Controls.Add(this.editButton);
-            this.buttonPane1.Controls.Add(this.addButton);
-            this.buttonPane1.Location = new System.Drawing.Point(6, 86);
-            this.buttonPane1.Name = "buttonPane1";
-            this.buttonPane1.Size = new System.Drawing.Size(1044, 60);
-            this.buttonPane1.TabIndex = 1;*/
-
-
-            // 
-            // updateButton
-            // 
-           /* this.updateButton.BackColor = System.Drawing.Color.MediumTurquoise;
-            this.updateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.updateButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.updateButton.ForeColor = System.Drawing.Color.White;
-            this.updateButton.Location = new System.Drawing.Point(532, 3);
-            this.updateButton.Name = "updateButton";
-            this.updateButton.Size = new System.Drawing.Size(150, 40);
-            this.updateButton.TabIndex = 4;
-            this.updateButton.Text = "Apdate Visit";
-            this.updateButton.UseVisualStyleBackColor = false;*/
-            // 
-            // deleteButton
-            // 
-            this.deleteButton.BackColor = System.Drawing.Color.YellowGreen;
-            this.deleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.deleteButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteButton.ForeColor = System.Drawing.Color.White;
-            this.deleteButton.Location = new System.Drawing.Point(355, 3);
-            this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(150, 40);
-            this.deleteButton.TabIndex = 3;
-            this.deleteButton.Text = "Delete Visit";
-            this.deleteButton.UseVisualStyleBackColor = false;
-            // 
-            // editButton
-            // 
-            this.editButton.BackColor = System.Drawing.Color.Tomato;
-            this.editButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.editButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editButton.ForeColor = System.Drawing.Color.White;
-            this.editButton.Location = new System.Drawing.Point(177, 3);
-            this.editButton.Name = "editButton";
-            this.editButton.Size = new System.Drawing.Size(150, 40);
-            this.editButton.TabIndex = 2;
-            this.editButton.Text = "Edit Visit";
-            this.editButton.UseVisualStyleBackColor = false;
-            // 
-            // addButton
-            // 
-            this.addButton.BackColor = System.Drawing.Color.Purple;
-            this.addButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addButton.ForeColor = System.Drawing.Color.White;
-            this.addButton.Location = new System.Drawing.Point(8, 3);
-            this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(150, 40);
-            this.addButton.TabIndex = 2;
-            this.addButton.Text = "Add Visit";
-            this.addButton.UseVisualStyleBackColor = false;
-            this.addButton.Click += new System.EventHandler(this.addButton_Click);
-            // 
-
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
@@ -198,8 +111,6 @@
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-
-           
             this.VisitID,
             this.PatientID,
             this.DoctorID,
@@ -210,18 +121,14 @@
             this.dataGridView1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dataGridView1.Location = new System.Drawing.Point(487, 174);
             this.dataGridView1.MultiSelect = false;
-
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 26;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-
             this.dataGridView1.Size = new System.Drawing.Size(721, 317);
-
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            //this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // VisitID
             // 
@@ -236,17 +143,13 @@
             this.PatientID.MinimumWidth = 6;
             this.PatientID.Name = "PatientID";
             this.PatientID.ReadOnly = true;
-
             // 
             // DoctorID
             // 
-
-
             this.DoctorID.HeaderText = "DoctorID";
             this.DoctorID.MinimumWidth = 6;
             this.DoctorID.Name = "DoctorID";
             this.DoctorID.ReadOnly = true;
-
             // 
             // Date
             // 
@@ -255,8 +158,6 @@
             this.Date.Name = "Date";
             this.Date.ReadOnly = true;
             // 
-
-
             // VisitType
             // 
             this.VisitType.HeaderText = "VisitType";
@@ -355,7 +256,6 @@
             this.txtSearchValue.Name = "txtSearchValue";
             this.txtSearchValue.Size = new System.Drawing.Size(200, 24);
             this.txtSearchValue.TabIndex = 19;
-           // this.txtSearchValue.TextChanged += new System.EventHandler(this.txtSearchValue_TextChanged);
             // 
             // label3
             // 
@@ -408,7 +308,6 @@
             this.cmbSearchType.Name = "cmbSearchType";
             this.cmbSearchType.Size = new System.Drawing.Size(121, 24);
             this.cmbSearchType.TabIndex = 25;
-           // this.cmbSearchType.SelectedIndexChanged += new System.EventHandler(this.cmbSearchType_SelectedIndexChanged);
             // 
             // btnSearch
             // 
@@ -497,15 +396,10 @@
             this.addButton.UseVisualStyleBackColor = false;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
-
             // VisitForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1076, 590);
-
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(1282, 803);
             this.Controls.Add(this.addButton);
@@ -530,7 +424,6 @@
             this.Controls.Add(this.textLabal2);
             this.Controls.Add(this.textLabal1);
             this.Controls.Add(this.txtPatientId);
-
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.topPan1);
             this.Name = "VisitForm";
@@ -541,6 +434,7 @@
             this.topPan1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

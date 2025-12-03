@@ -127,9 +127,9 @@ namespace Hospital_management_system
             MessageBox.Show("Search button clicked - Add your search logic here");
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+       /* private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
-        }
+        }*/
     }
 }
