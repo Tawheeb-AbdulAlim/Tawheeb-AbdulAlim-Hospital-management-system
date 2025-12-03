@@ -279,11 +279,12 @@
             // 
             // lblSearch
             // 
-            this.lblSearch.Location = new System.Drawing.Point(557, 171);
+            this.lblSearch.Location = new System.Drawing.Point(544, 171);
             this.lblSearch.Name = "lblSearch";
             this.lblSearch.Size = new System.Drawing.Size(96, 24);
             this.lblSearch.TabIndex = 39;
             this.lblSearch.Text = "Search By";
+            this.lblSearch.TextChanged += new System.EventHandler(this.lblSearch_TextChanged);
             // 
             // cmbSearchType
             // 

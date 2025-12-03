@@ -4,15 +4,20 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+
 using System.Windows.Forms;
 using Hospital_management_system.Models;
 using System.Collections.Generic;
+
+
+
 
 namespace Hospital_management_system.Services
 {
     public class EmployeeManagementServices
     {
-        hospitaldbcontext db = new hospitaldbcontext();
+
+       private hospitaldbcontext db = new hospitaldbcontext();
         public bool addemployee(Employee employee)
         {
             try
@@ -74,7 +79,7 @@ namespace Hospital_management_system.Services
 
 
 
-        public bool updateEmployee(Employee employee)
+      public bool updateEmployee(Employee employee)
         {
             return false;
             try
@@ -117,6 +122,8 @@ namespace Hospital_management_system.Services
             }
 
         }
+        
+        
 
 
         public bool deletemployee(int employeeid, Role role)
@@ -203,6 +210,7 @@ namespace Hospital_management_system.Services
             }
             return new List<reseptionist>();
         }
+
         public Doctor GetdoctorById(int doctorid)
         {
             return db.doctors.Find(doctorid);
