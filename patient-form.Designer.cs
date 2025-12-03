@@ -66,6 +66,7 @@
             this.topPanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.topPanel.Size = new System.Drawing.Size(1309, 79);
             this.topPanel.TabIndex = 0;
+            this.topPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.topPanel_Paint);
             // 
             // backButton
             // 
@@ -161,21 +162,21 @@
             "Female"});
             this.cmbGender.Location = new System.Drawing.Point(217, 352);
             this.cmbGender.Name = "cmbGender";
-            this.cmbGender.Size = new System.Drawing.Size(269, 27);
+            this.cmbGender.Size = new System.Drawing.Size(269, 24);
             this.cmbGender.TabIndex = 35;
             // 
             // numAge
             // 
             this.numAge.Location = new System.Drawing.Point(217, 291);
             this.numAge.Name = "numAge";
-            this.numAge.Size = new System.Drawing.Size(269, 27);
+            this.numAge.Size = new System.Drawing.Size(269, 24);
             this.numAge.TabIndex = 34;
             // 
             // fullName
             // 
             this.fullName.Location = new System.Drawing.Point(217, 229);
             this.fullName.Name = "fullName";
-            this.fullName.Size = new System.Drawing.Size(269, 27);
+            this.fullName.Size = new System.Drawing.Size(269, 24);
             this.fullName.TabIndex = 33;
             // 
             // lblPhone
@@ -185,7 +186,7 @@
             this.lblPhone.Location = new System.Drawing.Point(59, 411);
             this.lblPhone.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(91, 25);
+            this.lblPhone.Size = new System.Drawing.Size(75, 21);
             this.lblPhone.TabIndex = 29;
             this.lblPhone.Text = "Phone :";
             // 
@@ -196,7 +197,7 @@
             this.label3.Location = new System.Drawing.Point(59, 354);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(101, 25);
+            this.label3.Size = new System.Drawing.Size(83, 21);
             this.label3.TabIndex = 28;
             this.label3.Text = "Gender :";
             // 
@@ -207,7 +208,7 @@
             this.textLabal2.Location = new System.Drawing.Point(59, 293);
             this.textLabal2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.textLabal2.Name = "textLabal2";
-            this.textLabal2.Size = new System.Drawing.Size(65, 25);
+            this.textLabal2.Size = new System.Drawing.Size(54, 21);
             this.textLabal2.TabIndex = 27;
             this.textLabal2.Text = "Age :";
             // 
@@ -218,7 +219,7 @@
             this.textLabal1.Location = new System.Drawing.Point(59, 231);
             this.textLabal1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.textLabal1.Name = "textLabal1";
-            this.textLabal1.Size = new System.Drawing.Size(116, 25);
+            this.textLabal1.Size = new System.Drawing.Size(95, 21);
             this.textLabal1.TabIndex = 26;
             this.textLabal1.Text = "Full Name";
             // 
@@ -229,7 +230,7 @@
             this.lblPatientId.Location = new System.Drawing.Point(59, 165);
             this.lblPatientId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPatientId.Name = "lblPatientId";
-            this.lblPatientId.Size = new System.Drawing.Size(120, 25);
+            this.lblPatientId.Size = new System.Drawing.Size(97, 21);
             this.lblPatientId.TabIndex = 37;
             this.lblPatientId.Text = "Patient ID";
             // 
@@ -237,14 +238,14 @@
             // 
             this.txtPatientId.Location = new System.Drawing.Point(217, 165);
             this.txtPatientId.Name = "txtPatientId";
-            this.txtPatientId.Size = new System.Drawing.Size(269, 27);
+            this.txtPatientId.Size = new System.Drawing.Size(269, 24);
             this.txtPatientId.TabIndex = 38;
             // 
             // txtPhone
             // 
             this.txtPhone.Location = new System.Drawing.Point(217, 412);
             this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(269, 27);
+            this.txtPhone.Size = new System.Drawing.Size(269, 24);
             this.txtPhone.TabIndex = 40;
             // 
             // lblBloodType
@@ -254,7 +255,7 @@
             this.lblBloodType.Location = new System.Drawing.Point(59, 471);
             this.lblBloodType.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBloodType.Name = "lblBloodType";
-            this.lblBloodType.Size = new System.Drawing.Size(141, 25);
+            this.lblBloodType.Size = new System.Drawing.Size(117, 21);
             this.lblBloodType.TabIndex = 41;
             this.lblBloodType.Text = "Blood Type :";
             // 
@@ -273,16 +274,17 @@
             "O"});
             this.cmbBloodType.Location = new System.Drawing.Point(217, 472);
             this.cmbBloodType.Name = "cmbBloodType";
-            this.cmbBloodType.Size = new System.Drawing.Size(269, 27);
+            this.cmbBloodType.Size = new System.Drawing.Size(269, 24);
             this.cmbBloodType.TabIndex = 42;
             // 
             // lblSearch
             // 
-            this.lblSearch.Location = new System.Drawing.Point(557, 171);
+            this.lblSearch.Location = new System.Drawing.Point(544, 171);
             this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(96, 27);
+            this.lblSearch.Size = new System.Drawing.Size(96, 24);
             this.lblSearch.TabIndex = 39;
             this.lblSearch.Text = "Search By";
+            this.lblSearch.TextChanged += new System.EventHandler(this.lblSearch_TextChanged);
             // 
             // cmbSearchType
             // 
@@ -294,14 +296,14 @@
             "Phone"});
             this.cmbSearchType.Location = new System.Drawing.Point(646, 171);
             this.cmbSearchType.Name = "cmbSearchType";
-            this.cmbSearchType.Size = new System.Drawing.Size(80, 27);
+            this.cmbSearchType.Size = new System.Drawing.Size(80, 24);
             this.cmbSearchType.TabIndex = 44;
             // 
             // txtSearchValue
             // 
             this.txtSearchValue.Location = new System.Drawing.Point(732, 171);
             this.txtSearchValue.Name = "txtSearchValue";
-            this.txtSearchValue.Size = new System.Drawing.Size(161, 27);
+            this.txtSearchValue.Size = new System.Drawing.Size(161, 24);
             this.txtSearchValue.TabIndex = 45;
             this.txtSearchValue.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearchValue_KeyDown);
             // 
@@ -406,7 +408,7 @@
             // 
             // lblSearchBy
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(244)))), ((int)(((byte)(248)))));
             this.ClientSize = new System.Drawing.Size(1309, 717);

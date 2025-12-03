@@ -39,7 +39,7 @@ namespace Hospital_management_system
 
         private void btnEmployeeMangement_Click(object sender, EventArgs e)
         {
-            Employee f = new Employee();
+            Employeemanagement f = new Employeemanagement();
             f.Show();
             this.Hide();
         }

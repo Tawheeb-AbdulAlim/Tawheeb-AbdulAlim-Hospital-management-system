@@ -56,23 +56,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddEditeVisitForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AddEditeVisitForm.Designer.cs">
-      <DependentUpon>AddEditeVisitForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="AddEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AddEmployee.Designer.cs">
       <DependentUpon>AddEmployee.cs</DependentUpon>
     </Compile>
-    <Compile Include="Employee.cs">
+    <Compile Include="EmployeeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Employee.Designer.cs">
-      <DependentUpon>Employee.cs</DependentUpon>
+    <Compile Include="EmployeeForm.Designer.cs">
+      <DependentUpon>EmployeeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -86,6 +80,16 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202512021158066_InitialCreate.cs" />
+    <Compile Include="Migrations\202512021158066_InitialCreate.Designer.cs">
+      <DependentUpon>202512021158066_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202512021430341_initial megeration.cs" />
+    <Compile Include="Migrations\202512021430341_initial megeration.Designer.cs">
+      <DependentUpon>202512021430341_initial megeration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Class1.cs" />
     <Compile Include="Models\reseptionist.cs" />
     <Compile Include="Models\hospitaldbcontext.cs" />
     <Compile Include="Models\Doctor.cs" />
@@ -111,20 +115,23 @@
     <Compile Include="VisitForm.designer.cs">
       <DependentUpon>VisitForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AddEditeVisitForm.resx">
-      <DependentUpon>AddEditeVisitForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="AddEmployee.resx">
       <DependentUpon>AddEmployee.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Employee.resx">
-      <DependentUpon>Employee.cs</DependentUpon>
+    <EmbeddedResource Include="EmployeeForm.resx">
+      <DependentUpon>EmployeeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202512021158066_InitialCreate.resx">
+      <DependentUpon>202512021158066_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202512021430341_initial megeration.resx">
+      <DependentUpon>202512021430341_initial megeration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="obj\Debug\Hospital_management_system.Form1.resources" />
     <EmbeddedResource Include="obj\Debug\Hospital_management_system.Properties.Resources.resources" />
@@ -142,6 +149,7 @@
     </Compile>
     <EmbeddedResource Include="VisitForm.resx">
       <DependentUpon>VisitForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="bin\Debug\Hospital-management-system.exe.config" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />

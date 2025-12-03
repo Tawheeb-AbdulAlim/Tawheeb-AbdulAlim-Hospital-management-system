@@ -39,7 +39,7 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.Blue;
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.button1.Location = new System.Drawing.Point(30, 228);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(251, 46);
@@ -78,7 +78,7 @@
             this.LogIn.Controls.Add(this.username);
             this.LogIn.Controls.Add(this.button1);
             this.LogIn.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.LogIn.Location = new System.Drawing.Point(212, 87);
+            this.LogIn.Location = new System.Drawing.Point(212, 70);
             this.LogIn.Name = "LogIn";
             this.LogIn.Size = new System.Drawing.Size(315, 314);
             this.LogIn.TabIndex = 3;
@@ -91,6 +91,7 @@
             this.password1.Name = "password1";
             this.password1.Size = new System.Drawing.Size(251, 30);
             this.password1.TabIndex = 4;
+            this.password1.TextChanged += new System.EventHandler(this.password1_TextChanged);
             // 
             // username1
             // 
@@ -103,8 +104,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClientSize = new System.Drawing.Size(800, 472);
             this.Controls.Add(this.LogIn);
             this.Name = "Form2";
             this.Text = "Form2";

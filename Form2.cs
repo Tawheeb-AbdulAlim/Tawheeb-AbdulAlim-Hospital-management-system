@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Hospital_management_system
 {
@@ -46,22 +47,58 @@ namespace Hospital_management_system
         private void button1_Click(object sender, EventArgs e)
 
         {
-            string usermane=username1.Text;
-            string password=password1.Text;
+            string usermane = username1.Text.Trim();
+            string password = password1.Text.Trim();
+            // تحقق من أن الحقول ليست فارغة
+            if (string.IsNullOrEmpty(usermane) || string.IsNullOrEmpty(password))
+            {
+                MessageBox.Show("⚠️ الرجاء ملء كل الحقول!", "تنبيه",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-            hospitaldbcontext db = new hospitaldbcontext();
-            User u1= db.users.Where(u => u.Username == usermane && u.PasswordHash == password).FirstOrDefault();
-            if (u1!=null)
-            {
-                
-               Form1 form = new Form1();
-                form.Show();
-                this.Hide();
-            }
-            else
-            {
-                MessageBox.Show("invalid enterd");
-            }
+            
+
+                            hospitaldbcontext db = new hospitaldbcontext();
+                        User u1 = db.users.Where(u => u.Username == usermane && u.PasswordHash == password).FirstOrDefault();
+                            if (u1 != null)
+                            {
+
+                                Form1 form = new Form1();
+                                form.Show();
+                                this.Hide();
+                            }
+                     
+
+                        else
+                        {
+                            MessageBox.Show("❌ اسم المستخدم أو كلمة المرور غير صحيحة. حاول مرة أخرى.");
+                            username1.Clear();
+                            password1.Focus();
+                        }
+                    
+                }
+
+            
+
+        
+
+
+        private async void password1_TextChanged(object sender, EventArgs e)
+        {
+
+            // نخلي الحروف تظهر مؤقتاً
+            password1.UseSystemPasswordChar = false;
+
+            // ننتظر 700 مللي ثانية (0.7 ثانية)
+            await Task.Delay(500);
+
+            // نخفي النص بالنجوم
+            password1.UseSystemPasswordChar = true;
+
+            // نحافظ على النص والمؤشر في النهاية
+            password1.SelectionStart = password1.Text.Length;
+
         }
     }
 }

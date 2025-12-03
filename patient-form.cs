@@ -97,6 +97,8 @@ namespace Hospital_management_system
         /// عرض بيانات مريض محدد في الحقول
         /// </summary>
         /// <param name="patient">كائن المريض المراد عرض بياناته</param>
+       
+        // دالة عرض بيانات المريض في الحقول - نسخة واحدة فقط
         private void DisplayPatientData(Patient patient)
         {
             if (patient != null)
@@ -110,6 +112,9 @@ namespace Hospital_management_system
                 selectedPatient = patient;
             }
         }
+
+        // دالة تفريغ البحث
+      
 
         // ============ دوال التحقق من الصحة ============
 
@@ -233,7 +238,8 @@ namespace Hospital_management_system
         /// <summary>
         /// تعديل بيانات مريض - زر التعديل
         /// </summary>
-        private void editButton_Click(object sender, EventArgs e)
+ 
+        private void editButton_Click(object sender,EventArgs e)
         {
             try
             {
@@ -450,6 +456,75 @@ namespace Hospital_management_system
             }
         }
 
+        // عند النقر على صف في الجدول - معدل
+       private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.RowIndex >= 0 && e.RowIndex < dataGridView.Rows.Count)
+                {
+                    DataGridViewRow row = dataGridView.Rows[e.RowIndex];
+
+                    // استخراج ID المريض من العمود الأول
+                    if (row.Cells["ID"].Value != null && int.TryParse(row.Cells["ID"].Value.ToString(), out int patientId))
+                    {
+                        selectedPatient = patientService.GetPatientById(patientId);
+                        if (selectedPatient != null)
+                        {
+                            DisplayPatientData(selectedPatient);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Patient not found in database!", "Error",
+                                          MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error selecting patient: {ex.Message}",
+                               "Selection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // ⚡ إضافة حدث CellClick بدلاً من CellContentClick للاختيار الأفضل
+      private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.RowIndex >= 0 && e.RowIndex < dataGridView.Rows.Count)
+                {
+                    DataGridViewRow row = dataGridView.Rows[e.RowIndex];
+
+                    if (row.Cells["ID"].Value != null && int.TryParse(row.Cells["ID"].Value.ToString(), out int patientId))
+                    {
+                        selectedPatient = patientService.GetPatientById(patientId);
+                        if (selectedPatient != null)
+                        {
+                            DisplayPatientData(selectedPatient);
+
+                            // ✅ تأكيد الاختيار بصرياً
+                            dataGridView.ClearSelection();
+                            row.Selected = true;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error selecting patient: {ex.Message}");
+            }
+        }
+
+        
+        // عند تحميل الفورم
+        //private void patient_form_Load(object sender, EventArgs e)
+       // {
+       //     LoadPatients();
+          
+       // }
+
         // ============ دوال التنقل ============
 
         /// <summary>
@@ -460,6 +535,33 @@ namespace Hospital_management_system
             Form1 f = new Form1();
             f.Show();
             this.Hide();
+        }
+
+        // هذه الدوال يمكن حذفها إذا لم تستخدم
+        private void button2_Click(object sender, EventArgs e)
+        {
+            // لا شيء - يمكن حذفها
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            // لا شيء - يمكن حذفها
+        }
+        private void dataGridView_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            // لا شيء - يمكن حذفها (مكررة)
+        }
+
+
+        private void lblSearch_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void topPanel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
