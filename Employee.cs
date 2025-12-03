@@ -4,7 +4,6 @@ using Hospital_management_system.Services;
 using System;
 using System.Linq;
 using System.Windows.Forms;
-
 namespace Hospital_management_system
 {
     public partial class Employeemanagement : Form
@@ -282,9 +281,9 @@ namespace Hospital_management_system
             MessageBox.Show("Search button clicked - Add your search logic here");
         }
 
-       /* private void panel1_Paint(object sender, PaintEventArgs e)
+        private void Employeemanagement_Load(object sender, EventArgs e)
         {
 
-        }*/
+        }
     }
 }

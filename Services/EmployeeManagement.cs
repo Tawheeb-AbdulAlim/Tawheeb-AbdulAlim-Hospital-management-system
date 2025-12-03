@@ -14,7 +14,7 @@ using System.Collections.Generic;
 
 namespace Hospital_management_system.Services
 {
-    public class EmployeeManagement
+    public class EmployeeManagementServices
     {
 
        private hospitaldbcontext db = new hospitaldbcontext();
@@ -22,24 +22,55 @@ namespace Hospital_management_system.Services
         {
             try
             {
-                if (employee == null) return false;
+                if (employee == null) {
+                    MessageBox.Show("null");
+                     return false; }
+
                 if (employee.Role == Role.DOCTOR)
                 {
-                    db.doctors.Add((Doctor)employee);
+
+                    Doctor doctor1 = (Doctor)employee;
+                    doctor1.DoctorId = 255;
+                    
+                    doctor1.Specialization = "doctor";
+                    
+
+
+                    db.doctors.Add(doctor1);
                     db.SaveChanges();
                     return true;
                 }
+
+
+
+
+
                 if (employee.Role == Role.RESEPTIONIST)
                 {
-                    db.Reseptionists.Add((reseptionist)employee);
+                    MessageBox.Show("reseptionist");
+
+                    reseptionist reseptionist = (reseptionist)employee;
+                    reseptionist.EmployeeId = 255;
+                    
+                    
+                    
+
+                    db.Reseptionists.Add(reseptionist);
                     db.SaveChanges();
                     return true;
+
+
+
+
                 }
+                MessageBox.Show("none");
                 return false;
 
             }
             catch (Exception ex)
             {
+                MessageBox.Show("exeption ");
+                MessageBox.Show( ex.Message);
                 return false;
             }
         }
@@ -180,5 +211,13 @@ namespace Hospital_management_system.Services
             return new List<reseptionist>();
         }
 
+        public Doctor GetdoctorById(int doctorid)
+        {
+            return db.doctors.Find(doctorid);
+        }
+        public reseptionist GetPatientById(int reseptionistid)
+        {
+            return db.Reseptionists.Find(reseptionistid);
+        }
     }
 }

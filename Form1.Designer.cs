@@ -29,15 +29,15 @@
             this.BtnOpenVisits = new System.Windows.Forms.Button();
             this.btnEmployeeMangement = new System.Windows.Forms.Button();
             this.BtnOpenPatient = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox1.SuspendLayout();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // BtnOpenVisits
             // 
             this.BtnOpenVisits.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.BtnOpenVisits.Font = new System.Drawing.Font("Tahoma", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnOpenVisits.Location = new System.Drawing.Point(40, 137);
+            this.BtnOpenVisits.Location = new System.Drawing.Point(34, 162);
             this.BtnOpenVisits.Name = "BtnOpenVisits";
             this.BtnOpenVisits.Size = new System.Drawing.Size(417, 67);
             this.BtnOpenVisits.TabIndex = 0;
@@ -49,7 +49,7 @@
             // 
             this.btnEmployeeMangement.BackColor = System.Drawing.Color.Lime;
             this.btnEmployeeMangement.Font = new System.Drawing.Font("Tahoma", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEmployeeMangement.Location = new System.Drawing.Point(40, 237);
+            this.btnEmployeeMangement.Location = new System.Drawing.Point(34, 282);
             this.btnEmployeeMangement.Name = "btnEmployeeMangement";
             this.btnEmployeeMangement.Size = new System.Drawing.Size(417, 67);
             this.btnEmployeeMangement.TabIndex = 1;
@@ -61,7 +61,7 @@
             // 
             this.BtnOpenPatient.BackColor = System.Drawing.Color.Yellow;
             this.BtnOpenPatient.Font = new System.Drawing.Font("Tahoma", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnOpenPatient.Location = new System.Drawing.Point(40, 34);
+            this.BtnOpenPatient.Location = new System.Drawing.Point(34, 37);
             this.BtnOpenPatient.Name = "BtnOpenPatient";
             this.BtnOpenPatient.Size = new System.Drawing.Size(417, 67);
             this.BtnOpenPatient.TabIndex = 2;
@@ -69,30 +69,29 @@
             this.BtnOpenPatient.UseVisualStyleBackColor = false;
             this.BtnOpenPatient.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // groupBox1
+            // panel1
             // 
-            this.groupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.groupBox1.Controls.Add(this.BtnOpenPatient);
-            this.groupBox1.Controls.Add(this.btnEmployeeMangement);
-            this.groupBox1.Controls.Add(this.BtnOpenVisits);
-            this.groupBox1.Location = new System.Drawing.Point(42, 49);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(480, 324);
-            this.groupBox1.TabIndex = 3;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.panel1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.panel1.Controls.Add(this.btnEmployeeMangement);
+            this.panel1.Controls.Add(this.BtnOpenPatient);
+            this.panel1.Controls.Add(this.BtnOpenVisits);
+            this.panel1.Location = new System.Drawing.Point(303, 155);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(495, 456);
+            this.panel1.TabIndex = 4;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.ClientSize = new System.Drawing.Size(589, 450);
-            this.Controls.Add(this.groupBox1);
+            this.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.ClientSize = new System.Drawing.Size(1145, 768);
+            this.Controls.Add(this.panel1);
+            this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "PATIENT MANAGEMENT SYSTEM";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.groupBox1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -100,7 +99,7 @@
         private System.Windows.Forms.Button BtnOpenVisits;
         private System.Windows.Forms.Button btnEmployeeMangement;
         private System.Windows.Forms.Button BtnOpenPatient;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

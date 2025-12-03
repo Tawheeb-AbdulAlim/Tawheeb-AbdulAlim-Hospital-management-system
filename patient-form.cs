@@ -186,7 +186,7 @@ namespace Hospital_management_system
             }
         }
 
-        private void editButton_Click(object sender, EventArgs e)
+        private void editButton_Click(object sender,EventArgs e)
         {
             try
             {
@@ -479,10 +479,12 @@ namespace Hospital_management_system
             // لا شيء - يمكن حذفها (مكررة)
         }
 
+
         private void lblSearch_TextChanged(object sender, EventArgs e)
         {
 
         }
+
 
         private void topPanel_Paint(object sender, PaintEventArgs e)
         {
