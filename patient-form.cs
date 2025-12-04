@@ -16,12 +16,35 @@ namespace Hospital_management_system
     {
         private PatientManagement patientService = new PatientManagement();
         private Patient selectedPatient = null;
-
-        public lblSearchBy()
+        Role curentuserRole;
+        public lblSearchBy(Role role)
         {
             InitializeComponent();
+            this.curentuserRole = role;
+            privilleges();
+            
+            
         }
 
+
+
+        private void privilleges() {
+            if (this.curentuserRole == Role.ADMIN || this.curentuserRole == Role.DOCTOR) { 
+                addButton.Enabled = false;
+                addButton.BackColor = Color.Gray;
+                addButton.ForeColor = Color.White;
+
+                editButton.Enabled = false;
+                editButton.BackColor = Color.Gray;
+                editButton.ForeColor = Color.White;
+          
+            }
+            if (this.curentuserRole == Role.DOCTOR) 
+                deleteButton.Enabled = false;
+                deleteButton.BackColor = Color.Gray;
+                deleteButton.ForeColor = Color.White;
+        
+        }
         private void LoadPatients()
         {
             try
@@ -110,7 +133,7 @@ namespace Hospital_management_system
                 return false;
             }
 
-            if (numAge.Value <= 0 || numAge.Value > 120)
+            if (numAge.Value <= 0 || numAge.Value >120)
             {
                 MessageBox.Show("Please enter valid age (1-120)", "Validation Error",
                               MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -459,7 +482,7 @@ namespace Hospital_management_system
 
         private void backButton_Click(object sender, EventArgs e)
         {
-            Form1 f = new Form1();
+            Form1 f = new Form1(curentuserRole);
             f.Show();
             this.Hide();
         }
@@ -487,6 +510,11 @@ namespace Hospital_management_system
 
 
         private void topPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void numAge_ValueChanged(object sender, EventArgs e)
         {
 
         }

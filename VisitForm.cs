@@ -16,12 +16,33 @@ namespace Hospital_management_system
 
         private VisitsManagement visitService = new VisitsManagement();
         private Visit selectedVisit = null;
-        public VisitForm()
+        Role curentuserRole;
+        public VisitForm(Role curentuserRole)
         {
             InitializeComponent();
+            this.curentuserRole = curentuserRole;
+            privilleges();
+            
+           
         }
 
 
+        private void privilleges()
+        {
+            if (this.curentuserRole == Role.ADMIN || this.curentuserRole == Role.RESEPTIONIST)
+            {
+                addButton.Enabled = false;
+                addButton.BackColor = Color.DarkGray;
+                addButton.FlatStyle = FlatStyle.Flat;
+                editButton.Enabled = false;
+                editButton.BackColor= Color.DarkGray;
+                editButton.ForeColor = Color.White;
+                deleteButton.Enabled = false;
+                deleteButton.BackColor = Color.DarkGray;
+                deleteButton.ForeColor = Color.White;
+            }
+            
+        }
 
         // عند تحميل الفورم
         private void VisitForm_Load(object sender, EventArgs e)
@@ -448,7 +469,7 @@ namespace Hospital_management_system
 
         private void backButton_Click(object sender, EventArgs e)
         {
-            Form1 f = new Form1();
+            Form1 f = new Form1(curentuserRole);
             f.Show();
             this.Hide();
         }

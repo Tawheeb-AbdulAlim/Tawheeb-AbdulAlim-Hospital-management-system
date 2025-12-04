@@ -29,18 +29,21 @@ namespace Hospital_management_system
         }
 
         private void Form2_Load(object sender, EventArgs e)
+
         {
-            using (hospitaldbcontext db = new hospitaldbcontext())
-            {
 
-                db.users.Add(new User { Username = "admin", PasswordHash = "admin" });
-                db.users.Add(new User { Username = "tawheeb", PasswordHash = "tawheeb" });
-                db.users.Add(new User { Username = "sadeg", PasswordHash = "sadeg" });
-                db.users.Add(new User { Username = "akram", PasswordHash = "akram" });
-                db.users.Add(new User { Username = "hamsa", PasswordHash = "hamsa" });
-                db.SaveChanges();
 
-            }
+            //using (hospitaldbcontext db = new hospitaldbcontext())
+            //{
+            //    User user = new User();
+
+            //    user.Username = "akram";
+            //    user.PasswordHash = "akram";
+            //    user.Role = Role.RESEPTIONIST.ToString();
+            //    db.users.Add(user);
+            //    db.SaveChanges();
+
+            //}
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -48,6 +51,8 @@ namespace Hospital_management_system
         {
             string usermane=username1.Text;
             string password=password1.Text;
+            Role role = new Role();
+            
            // تحقق من أن الحقول ليست فارغة
             if (string.IsNullOrEmpty(usermane) || string.IsNullOrEmpty(password))
             {
@@ -57,15 +62,22 @@ namespace Hospital_management_system
             }
 
 
-
+            
             hospitaldbcontext db = new hospitaldbcontext();
+             
             User u1= db.users.Where(u => u.Username == usermane && u.PasswordHash == password).FirstOrDefault();
             if (u1!=null)
             {
+                if (Enum.TryParse<Role>(u1.Role, out role))
+                {
+
+                    Form1 form = new Form1(role);
+                    form.Show();
+                    this.Hide();
+                }
+                else
+                    MessageBox.Show("error of concert text to enum");
                 
-               Form1 form = new Form1();
-                form.Show();
-                this.Hide();
             }
             else
             {
