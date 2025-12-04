@@ -75,9 +75,11 @@ namespace Hospital_management_system
             User u1= db.users.Where(u => u.Username == usermane && u.PasswordHash == password).FirstOrDefault();
             if (u1!=null)
             {
+                if (u1.Role == null) 
+                    MessageBox.Show("error: user role is null ");
                 if (Enum.TryParse<Role>(u1.Role, out role))
                 {
-
+                    
                     Form1 form = new Form1(role);
                     form.Show();
                     this.Hide();
