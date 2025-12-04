@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Hospital_management_system
 {
@@ -49,17 +50,23 @@ namespace Hospital_management_system
         private void button1_Click(object sender, EventArgs e)
 
         {
+
             string usermane=username1.Text;
             string password=password1.Text;
             Role role = new Role();
             
-           // تحقق من أن الحقول ليست فارغة
+           
+           
+            // تحقق من أن الحقول ليست فارغة
+
             if (string.IsNullOrEmpty(usermane) || string.IsNullOrEmpty(password))
             {
                 MessageBox.Show("⚠️ الرجاء ملء كل الحقول!", "تنبيه",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
+            
 
 
             
@@ -84,6 +91,8 @@ namespace Hospital_management_system
                 MessageBox.Show("خطاء في اسم المستخدم او كلمة المرور");
             }
         }
+
+                            
 
         private async void password1_TextChanged(object sender, EventArgs e)
         {

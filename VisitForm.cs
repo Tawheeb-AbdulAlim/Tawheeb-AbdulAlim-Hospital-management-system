@@ -32,14 +32,14 @@ namespace Hospital_management_system
             if (this.curentuserRole == Role.ADMIN || this.curentuserRole == Role.RESEPTIONIST)
             {
                 addButton.Enabled = false;
-                addButton.BackColor = Color.DarkGray;
-                addButton.FlatStyle = FlatStyle.Flat;
+                //addButton.BackColor = Color.DarkGray;
+                //addButton.ForeColor = Color.White;
                 editButton.Enabled = false;
-                editButton.BackColor= Color.DarkGray;
-                editButton.ForeColor = Color.White;
+                //editButton.BackColor= Color.DarkGray;
+                //editButton.ForeColor = Color.White;
                 deleteButton.Enabled = false;
-                deleteButton.BackColor = Color.DarkGray;
-                deleteButton.ForeColor = Color.White;
+                //deleteButton.BackColor = Color.DarkGray;
+                //deleteButton.ForeColor = Color.White;
             }
             
         }

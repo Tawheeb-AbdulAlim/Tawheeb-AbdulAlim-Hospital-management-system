@@ -30,7 +30,8 @@ namespace Hospital_management_system
             if (CurentUserRole == Role.RESEPTIONIST)
             {
                 BtnOpenVisits.Enabled = false;
-               
+               // BtnOpenVisits.BackColor = Color.Gray;
+               //BtnOpenVisits.ForeColor = Color.White;
             }
         }
         private void label1_Click(object sender, EventArgs e)
