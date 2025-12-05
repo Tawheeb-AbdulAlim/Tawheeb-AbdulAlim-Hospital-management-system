@@ -34,17 +34,16 @@ namespace Hospital_management_system
         {
 
 
-            //using (hospitaldbcontext db = new hospitaldbcontext())
-            //{
-            //    User user = new User();
+            //////////////using (hospitaldbcontext db = new hospitaldbcontext())
+            //////////////{
+            //////////////    User user = new User();
 
-            //    user.Username = "akram";
-            //    user.PasswordHash = "akram";
-            //    user.Role = Role.RESEPTIONIST.ToString();
-            //    db.users.Add(user);
-            //    db.SaveChanges();
-
-            //}
+            //////////////    string Username = "admin  ";
+            //////////////   string PasswordHash = "admin  ";
+            //////////////    user= db.users.Where(u => u.Username == Username).FirstOrDefault();
+            /////////////    .users.Remove);
+            //////////////    db.SaveChanges();
+            //////////////}
         }
 
         private void button1_Click(object sender, EventArgs e)

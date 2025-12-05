@@ -45,7 +45,6 @@ namespace Hospital_management_system
             this.lblPassword = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.lblRole = new System.Windows.Forms.Label();
-            this.txtRole = new System.Windows.Forms.TextBox();
             this.lblEmployeeId = new System.Windows.Forms.Label();
             this.txtEmployeeId = new System.Windows.Forms.TextBox();
             this.txtSearchValue = new System.Windows.Forms.TextBox();
@@ -58,6 +57,7 @@ namespace Hospital_management_system
             this.editButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
+            this.txtRole = new System.Windows.Forms.ComboBox();
             this.topPan1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -85,6 +85,7 @@ namespace Hospital_management_system
             this.backButton.TabIndex = 1;
             this.backButton.Text = "Back";
             this.backButton.UseVisualStyleBackColor = false;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
             // titleLabe1
             // 
@@ -102,15 +103,9 @@ namespace Hospital_management_system
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.GhostWhite;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.UserId,
-            this.Username,
-            this.Password,
-            this.Role,
-            this.EmployeeID});
             this.dataGridView1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dataGridView1.Location = new System.Drawing.Point(485, 174);
             this.dataGridView1.MultiSelect = false;
@@ -124,12 +119,12 @@ namespace Hospital_management_system
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // UserID
+            // UserId
             // 
-            //this.UserId.HeaderText = "UserID";
-            //this.UserID.MinimumWidth = 6;
-            //this.UserID.Name = "UserID";
-            //this.UserID.ReadOnly = true;
+            this.UserId.MinimumWidth = 6;
+            this.UserId.Name = "UserId";
+            this.UserId.ReadOnly = true;
+            this.UserId.Width = 125;
             // 
             // Username
             // 
@@ -137,6 +132,7 @@ namespace Hospital_management_system
             this.Username.MinimumWidth = 6;
             this.Username.Name = "Username";
             this.Username.ReadOnly = true;
+            this.Username.Width = 125;
             // 
             // Password
             // 
@@ -144,6 +140,7 @@ namespace Hospital_management_system
             this.Password.MinimumWidth = 6;
             this.Password.Name = "Password";
             this.Password.ReadOnly = true;
+            this.Password.Width = 125;
             // 
             // Role
             // 
@@ -151,6 +148,7 @@ namespace Hospital_management_system
             this.Role.MinimumWidth = 6;
             this.Role.Name = "Role";
             this.Role.ReadOnly = true;
+            this.Role.Width = 125;
             // 
             // EmployeeID
             // 
@@ -158,6 +156,7 @@ namespace Hospital_management_system
             this.EmployeeID.MinimumWidth = 6;
             this.EmployeeID.Name = "EmployeeID";
             this.EmployeeID.ReadOnly = true;
+            this.EmployeeID.Width = 125;
             // 
             // txtUsername
             // 
@@ -203,13 +202,6 @@ namespace Hospital_management_system
             this.lblRole.Size = new System.Drawing.Size(54, 21);
             this.lblRole.TabIndex = 14;
             this.lblRole.Text = "Role:";
-            // 
-            // txtRole
-            // 
-            this.txtRole.Location = new System.Drawing.Point(158, 258);
-            this.txtRole.Name = "txtRole";
-            this.txtRole.Size = new System.Drawing.Size(249, 24);
-            this.txtRole.TabIndex = 16;
             // 
             // lblEmployeeId
             // 
@@ -272,7 +264,6 @@ namespace Hospital_management_system
             // 
             // txtUserId
             // 
-            this.txtUserId.Enabled = true;
             this.txtUserId.Location = new System.Drawing.Point(159, 128);
             this.txtUserId.Name = "txtUserId";
             this.txtUserId.ReadOnly = true;
@@ -345,12 +336,25 @@ namespace Hospital_management_system
             this.addButton.UseVisualStyleBackColor = false;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
+            // txtRole
+            // 
+            this.txtRole.FormattingEnabled = true;
+            this.txtRole.Items.AddRange(new object[] {
+            "DOCTOR",
+            "ADMIN",
+            "RESEPTIONIST"});
+            this.txtRole.Location = new System.Drawing.Point(158, 259);
+            this.txtRole.Name = "txtRole";
+            this.txtRole.Size = new System.Drawing.Size(249, 24);
+            this.txtRole.TabIndex = 28;
+            // 
             // userform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(1282, 653);
+            this.Controls.Add(this.txtRole);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.lblUserId);
@@ -362,7 +366,6 @@ namespace Hospital_management_system
             this.Controls.Add(this.labelSearchBy);
             this.Controls.Add(this.txtEmployeeId);
             this.Controls.Add(this.lblEmployeeId);
-            this.Controls.Add(this.txtRole);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.lblRole);
             this.Controls.Add(this.lblPassword);
@@ -394,7 +397,6 @@ namespace Hospital_management_system
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.Label lblRole;
         private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.TextBox txtRole;
         private System.Windows.Forms.Label lblEmployeeId;
         private System.Windows.Forms.TextBox txtEmployeeId;
         private System.Windows.Forms.TextBox txtSearchValue;
@@ -412,6 +414,7 @@ namespace Hospital_management_system
         private System.Windows.Forms.DataGridViewTextBoxColumn Password;
         private System.Windows.Forms.DataGridViewTextBoxColumn Role;
         private System.Windows.Forms.DataGridViewTextBoxColumn EmployeeID;
+        private ComboBox txtRole;
     }
 }
 

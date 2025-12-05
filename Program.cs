@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hospital_management_system.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,8 +18,7 @@ namespace Hospital_management_system
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new userform
-                ());
+            Application.Run(new Form2());
 
      
 

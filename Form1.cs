@@ -30,8 +30,17 @@ namespace Hospital_management_system
             if (CurentUserRole == Role.RESEPTIONIST)
             {
                 BtnOpenVisits.Enabled = false;
-               // BtnOpenVisits.BackColor = Color.Gray;
-               //BtnOpenVisits.ForeColor = Color.White;
+                usermanagementbutton.Enabled = false;
+                // BtnOpenVisits.BackColor = Color.Gray;
+                //BtnOpenVisits.ForeColor = Color.White;
+            }
+
+            else if (CurentUserRole == Role.DOCTOR)
+            {
+                
+                usermanagementbutton.Enabled = false;
+                //btnEmployeeMangement.BackColor = Color.Gray;
+                //btnEmployeeMangement.ForeColor = Color.White;
             }
         }
         private void label1_Click(object sender, EventArgs e)
@@ -68,6 +77,24 @@ namespace Hospital_management_system
         {
             lblSearchBy p=new lblSearchBy(CurentUserRole);
             p.Show();
+            this.Hide();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void userbon_Click(object sender, EventArgs e)
+        {
+            
+            if (CurentUserRole != Role.ADMIN)
+            {
+                MessageBox.Show("Access Denied! You do not have permission to access User Management.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            userform uf = new userform(CurentUserRole);
+            uf.Show();
             this.Hide();
         }
     }

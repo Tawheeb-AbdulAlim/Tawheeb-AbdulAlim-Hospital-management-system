@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Hospital_management_system.Models;
 
 namespace Hospital_management_system
 {
@@ -16,10 +17,11 @@ namespace Hospital_management_system
     {
         private hospitaldbcontext context;
         private User selectedUser;
-
-        public userform()
+        private Role currenruserRole;
+        public userform(Role currenruserRole)
         {
             InitializeComponent();
+            this.currenruserRole = currenruserRole;
         }
 
         private void FormUsers_Load(object sender, EventArgs e)
@@ -48,7 +50,7 @@ namespace Hospital_management_system
             txtUserId.Clear();
             txtUsername.Clear();
             txtPassword.Clear();
-            txtRole.Clear();
+          txtRole.SelectedIndex = 0;
             txtEmployeeId.Clear();
             selectedUser = null;
         }
@@ -71,24 +73,154 @@ namespace Hospital_management_system
                 return false;
             }
 
-            if (string.IsNullOrWhiteSpace(txtRole.Text))
-            {
-                MessageBox.Show("Please enter role", "Warning",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtRole.Focus();
-                return false;
-            }
 
-            if (!int.TryParse(txtEmployeeId.Text, out int employeeId))
-            {
-                MessageBox.Show("Please enter valid employee ID", "Warning",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtEmployeeId.Focus();
-                return false;
-            }
 
+            if (int.TryParse(txtEmployeeId.Text, out int employeeId))
+            {
+
+
+
+
+
+                User user = context.users.FirstOrDefault(u => u.EmployeeId == employeeId);
+
+
+                if (user != null)
+                {
+                    if (user.UserId != employeeId && user.Role != txtRole.SelectedItem.ToString())
+                    {
+
+
+
+                        if (txtRole.SelectedItem.ToString() == "DOCTOR")
+                        {
+                            Doctor doc = context.doctors.Find(employeeId);
+                            if (doc == null)
+                            {
+                                MessageBox.Show("Employee ID does not correspond to any doctor", "Warning"
+                                  );
+                                txtEmployeeId.Focus();
+                                return false;
+                            }
+                            return true;
+                        }
+
+
+                        else if (txtRole.SelectedItem.ToString() == "RESEPTIONIST")
+                        {
+                            reseptionist resep = context.Reseptionists.Find(employeeId);
+                            if (resep == null)
+                            {
+                                MessageBox.Show("Employee ID does not correspond to any reseptionist", "Warning"
+                                  );
+                                txtEmployeeId.Focus();
+                                return false;
+                            }
+                            return true;
+                        }
+
+
+
+                        else if (txtRole.SelectedItem.ToString() == "ADMIN")
+                        {
+                            Doctor doc = context.doctors.Find(employeeId);
+                            reseptionist resep = context.Reseptionists.Find(employeeId);
+                            if (doc == null || resep == null)
+                            {
+                                MessageBox.Show("Employee ID does not correspond to any doctor or reseptoinist", "Warning"
+                                  );
+                                txtEmployeeId.Focus();
+                                return false;
+                            }
+                            return true;
+
+                        }
+
+                        return false;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Employee ID is already assigned to another user", "Warning");
+                        txtEmployeeId.Focus();
+
+                        return false;
+                    }
+                    return true;
+                }
+                else {
+
+
+
+
+
+                    if (txtRole.SelectedItem.ToString() == "DOCTOR")
+                    {
+                        Doctor doc = context.doctors.Find(employeeId);
+                        if (doc == null)
+                        {
+                            MessageBox.Show("Employee ID does not correspond to any doctor", "Warning"
+                              );
+                            txtEmployeeId.Focus();
+                            return false;
+                        }
+                        return true;
+                    }
+
+
+                    else if (txtRole.SelectedItem.ToString() == "RESEPTIONIST")
+                    {
+                        reseptionist resep = context.Reseptionists.Find(employeeId);
+                        if (resep == null)
+                        {
+                            MessageBox.Show("Employee ID does not correspond to any reseptionist", "Warning"
+                              );
+                            txtEmployeeId.Focus();
+                            return false;
+                        }
+                        return true;
+                    }
+
+
+
+                    else if (txtRole.SelectedItem.ToString() == "ADMIN")
+                    {
+                        Doctor doc = context.doctors.Find(employeeId);
+                        reseptionist resep = context.Reseptionists.Find(employeeId);
+                        if (doc == null || resep == null)
+                        {
+                            MessageBox.Show("Employee ID does not correspond to any doctor or reseptoinist", "Warning"
+                              );
+                            txtEmployeeId.Focus();
+                            return false;
+                        }
+                        return true;
+
+                    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+                }
+                }
+                else
+                {
+                    MessageBox.Show("Please enter valid employee ID", "Warning",
+                           MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtEmployeeId.Focus();
+                    return false;
+                }
             return true;
-        }
+            }
+                                                                                            
 
 
         //private void dataGridView_SelectionChanged(object sender, EventArgs e)
@@ -122,22 +254,21 @@ namespace Hospital_management_system
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            MessageBox.Show("true tawheeb");
+           
             try
             {
                 if (e.RowIndex >= 0 && e.RowIndex < dataGridView1.Rows.Count)
                 {
-                    MessageBox.Show("true tawheeb1");
+                    
                     DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
-                    MessageBox.Show("Row index: " + e.RowIndex.ToString());
-                    MessageBox.Show("id"+row.Cells["UserId"].Value);
+                   
                     if (row.Cells["UserId"].Value != null && int.TryParse(row.Cells["UserId"].Value.ToString(), out int userid))
                     {
-                        MessageBox.Show("trueeeeeeeeeeeeeee tawheeb2");
+                        
                         selectedUser = context.users.Where(u => u.UserId == userid).FirstOrDefault();
                         if (selectedUser != null)
                         {
-                            MessageBox.Show("true tawheeb3");
+                            
 
                             txtUserId.Text = selectedUser.UserId.ToString();
                             txtUsername.Text = selectedUser.Username;
@@ -189,18 +320,18 @@ namespace Hospital_management_system
                     {
                         Username = txtUsername.Text,
                         PasswordHash = txtPassword.Text,
-                        Role = txtRole.Text,
+                        Role = txtRole.SelectedItem.ToString(),
                         EmployeeId = int.Parse(txtEmployeeId.Text)
                     };
 
                     context.users.Add(newUser);
                     context.SaveChanges();
-
-
-                    MessageBox.Show("User added successfully", "Success",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                  
                     LoadUsers();
+
+                    MessageBox.Show("User added successfully", "Success");
+
+ 
                     ClearFields();
                 }
                 catch (Exception ex)
@@ -230,11 +361,11 @@ namespace Hospital_management_system
                     selectedUser.EmployeeId = int.Parse(txtEmployeeId.Text);
 
                     context.SaveChanges();
-
+                    LoadUsers();
                     MessageBox.Show("User updated successfully", "Success",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    LoadUsers();
+
                     ClearFields();
                 }
                 catch (Exception ex)
@@ -263,11 +394,13 @@ namespace Hospital_management_system
                 {
                     context.users.Remove(selectedUser);
                     context.SaveChanges();
-
+                    
+                    
+                    LoadUsers();
                     MessageBox.Show("User deleted successfully", "Success",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    LoadUsers();
+                    
                     ClearFields();
                 }
                 catch (Exception ex)
@@ -336,7 +469,10 @@ namespace Hospital_management_system
 
         private void backButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+           Form1 mainForm = new Form1(currenruserRole);
+            mainForm.Show();
+            this.Hide();
+            
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -344,6 +480,8 @@ namespace Hospital_management_system
             
         
     }
+
+       
     }
 }
 
