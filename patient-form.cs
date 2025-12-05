@@ -605,5 +605,10 @@ namespace Hospital_management_system
         {
 
         }
+
+        private void dataGridView_CellContentClick_2(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
