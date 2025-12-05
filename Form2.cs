@@ -34,12 +34,12 @@ namespace Hospital_management_system
             using (hospitaldbcontext db = new hospitaldbcontext())
             {
 
-                db.users.Add(new User { Username = "admin", PasswordHash = "admin" });
+               /* db.users.Add(new User { Username = "admin", PasswordHash = "admin" });
                 db.users.Add(new User { Username = "tawheeb", PasswordHash = "tawheeb" });
                 db.users.Add(new User { Username = "sadeg", PasswordHash = "sadeg" });
                 db.users.Add(new User { Username = "akram", PasswordHash = "akram" });
                 db.users.Add(new User { Username = "hamsa", PasswordHash = "hamsa" });
-                db.SaveChanges();
+                db.SaveChanges();*/
 
             }
         }

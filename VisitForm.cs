@@ -16,9 +16,17 @@ namespace Hospital_management_system
 
         private VisitsManagement visitService = new VisitsManagement();
         private Visit selectedVisit = null;
+
+        // 🔹 قوائم للاقتراحات التلقائية
+        private List<string> visitTypesList;
+        private List<string> medicationExamples;
+
+
         public VisitForm()
         {
             InitializeComponent();
+            // ⚡ تهيئة قوائم الاقتراحات
+            InitializeAutoCompleteLists();
         }
 
 
@@ -31,8 +39,58 @@ namespace Hospital_management_system
             LoadVisits();
             InitiializeSearchCombox();
 
+            SetupAutoComplete();
 
         }
+
+
+        private void InitializeAutoCompleteLists()
+        {
+            // ⚡ قائمة أنواع الزيارات الشائعة
+            visitTypesList = new List<string>
+            {
+                "كشف دوري", "متابعة", "طوارئ", "استشارة", "جراحة",
+                "فحص مختبر", "تطعيم", "فحص أسنان", "فحص عيون",
+                "علاج طبيعي", "جلسة نفسية", "فحص روتيني",
+                "متابعة حالة مزمنة", "كشف بعد العملية", "استشارة تغذية",
+                "إعادة تأهيل", "كشف نسائي", "كشف أطفال",
+                "كشف باطنية", "كشف عظام"
+            };
+
+            // ⚡ أمثلة على الأدوية الشائعة
+            medicationExamples = new List<string>
+            {
+                "أسبرين 100mg", "باراسيتامول 500mg", "إيبوبروفين 400mg",
+                "أموكسيسيلين 500mg", "ميتفورمين 850mg", "أتورفاستاتين 20mg",
+                "لوزارتان 50mg", "أوميبرازول 20mg", "فيتامين د 1000IU",
+                "أنسولين 10 units", "وارفارين 5mg", "دواء السعال",
+                "مضاد حيوي", "مسكن ألم", "مضاد التهاب"
+            };
+        }
+
+
+        // 🔹 دالة إعداد الاقتراحات التلقائية
+        private void SetupAutoComplete()
+        {
+            // ⚡ اقتراحات لأنواع الزيارات
+            AutoCompleteStringCollection visitTypeCollection = new AutoCompleteStringCollection();
+            visitTypeCollection.AddRange(visitTypesList.ToArray());
+            txtVisitType.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            txtVisitType.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            txtVisitType.AutoCompleteCustomSource = visitTypeCollection;
+
+            // ⚡ اقتراحات للأدوية
+            AutoCompleteStringCollection medicationCollection = new AutoCompleteStringCollection();
+            medicationCollection.AddRange(medicationExamples.ToArray());
+            txtCurrentMedication.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            txtCurrentMedication.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            txtCurrentMedication.AutoCompleteCustomSource = medicationCollection;
+        }
+
+
+
+
+
 
 
         // دالة تفريغ البحث

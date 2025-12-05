@@ -10,7 +10,6 @@
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "Hospital_management_system.Models.hospitaldbcontext";
         }
 
         protected override void Seed(Hospital_management_system.Models.hospitaldbcontext context)

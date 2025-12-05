@@ -149,8 +149,113 @@ namespace Hospital_management_system.Services
             return db.doctors.Any(d => d.DoctorId == doctorId);
         }
 
-    
 
+
+
+
+
+
+        // ========== ⚡ الدوال الجديدة المضافة ==========
+
+        // 🔹 دالة جلب جميع المرضى لعرضهم في المساعدة
+        public List<Patient> GetAllPatients()
+        {
+            try
+            {
+                return db.patients.OrderBy(p => p.PatientId).ToList();
+            }
+            catch (Exception)
+            {
+                return new List<Patient>();
+            }
+        }
+
+        // 🔹 دالة جلب جميع الأطباء لعرضهم في المساعدة
+        public List<Doctor> GetAllDoctors()
+        {
+            try
+            {
+                return db.doctors.OrderBy(d => d.DoctorId).ToList();
+            }
+            catch (Exception)
+            {
+                return new List<Doctor>();
+            }
+        }
+
+
+        // 🔹 دالة الحصول على اسم المريض باستخدام الـ ID
+        public string GetPatientName(int patientId)
+        {
+            try
+            {
+                var patient = db.patients.Find(patientId);
+                return patient?.FullName ?? "Unknown Patient";
+            }
+            catch (Exception)
+            {
+                return "Unknown";
+            }
+        }
+
+        // 🔹 دالة الحصول على اسم الطبيب باستخدام الـ ID
+        public string GetDoctorName(int doctorId)
+        {
+            try
+            {
+                var doctor = db.doctors.Find(doctorId);
+                return doctor?.FullName ?? "Unknown Doctor";
+            }
+            catch (Exception)
+            {
+                return "Unknown";
+            }
+        }
+
+
+
+        // 🔹 دالة جلب أنواع الزيارات الأكثر شيوعاً
+        public List<string> GetCommonVisitTypes()
+        {
+            return db.visits
+                .GroupBy(v => v.VisitType)
+                .OrderByDescending(g => g.Count())
+                .Take(10)
+                .Select(g => g.Key)
+                .ToList();
+        }
+
+
+
+        // 🔹 دالة جلب إحصائيات الزيارات
+        public int GetTotalVisits()
+        {
+            return db.visits.Count();
+        }
+
+        public int GetVisitsByPatient(int patientId)
+        {
+            return db.visits.Count(v => v.PatientId == patientId);
+        }
+
+        public int GetVisitsByDoctor(int doctorId)
+        {
+            return db.visits.Count(v => v.DoctorId == doctorId);
+        }
+
+        // 🔹 دالة الحصول على تخصص الطبيب
+        public string GetDoctorSpecialization(int doctorId)
+        {
+            try
+            {
+                var doctor = db.doctors.Find(doctorId);
+                return doctor?.Specialization ?? "Not Specified";
+            }
+            catch (Exception)
+            {
+                return "Not Specified";
+            }
+        }
 
 
 

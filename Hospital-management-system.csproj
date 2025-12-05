@@ -80,13 +80,9 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202512021158066_InitialCreate.cs" />
-    <Compile Include="Migrations\202512021158066_InitialCreate.Designer.cs">
-      <DependentUpon>202512021158066_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202512021430341_initial megeration.cs" />
-    <Compile Include="Migrations\202512021430341_initial megeration.Designer.cs">
-      <DependentUpon>202512021430341_initial megeration.cs</DependentUpon>
+    <Compile Include="Migrations\202512042031512_InitialCreate.cs" />
+    <Compile Include="Migrations\202512042031512_InitialCreate.designer.cs">
+      <DependentUpon>202512042031512_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Class1.cs" />
@@ -127,11 +123,8 @@
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202512021158066_InitialCreate.resx">
-      <DependentUpon>202512021158066_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202512021430341_initial megeration.resx">
-      <DependentUpon>202512021430341_initial megeration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202512042031512_InitialCreate.resx">
+      <DependentUpon>202512042031512_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="obj\Debug\Hospital_management_system.Form1.resources" />
     <EmbeddedResource Include="obj\Debug\Hospital_management_system.Properties.Resources.resources" />

@@ -13,7 +13,7 @@ namespace Hospital_management_system.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202512021158066_InitialCreate"; }
+            get { return "202512042031512_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

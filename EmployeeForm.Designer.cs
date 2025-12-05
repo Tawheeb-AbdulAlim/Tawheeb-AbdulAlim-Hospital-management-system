@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace Hospital_management_system
 {
-    partial class Employeemanagement:Form
+    partial class EmployeeForm : Form
     {
 
 
@@ -35,7 +35,28 @@ namespace Hospital_management_system
         private void InitializeComponent()
         {
 
+
            
+// في دالة InitializeComponent
+this.lblSpecialization = new System.Windows.Forms.Label();
+this.lblSpecialization.AutoSize = true;
+this.lblSpecialization.Location = new System.Drawing.Point(20, 280);
+this.lblSpecialization.Name = "lblSpecialization";
+this.lblSpecialization.Size = new System.Drawing.Size(70, 15);
+this.lblSpecialization.TabIndex = 12;
+this.lblSpecialization.Text = "التخصص:";
+this.lblSpecialization.Visible = false;
+
+this.txtSpecialization = new System.Windows.Forms.TextBox();
+this.txtSpecialization.Location = new System.Drawing.Point(100, 277);
+this.txtSpecialization.Name = "txtSpecialization";
+this.txtSpecialization.Size = new System.Drawing.Size(200, 23);
+this.txtSpecialization.TabIndex = 6;
+this.txtSpecialization.Visible = false;
+
+
+
+
             this.panel1 = new System.Windows.Forms.Panel();
             this.backButtonEmp = new System.Windows.Forms.Button();
             this.lblTitleEmp = new System.Windows.Forms.Label();
@@ -84,7 +105,6 @@ namespace Hospital_management_system
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(934, 77);
             this.panel1.TabIndex = 0;
-            //this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // backButtonEmp
             // 
@@ -121,7 +141,7 @@ namespace Hospital_management_system
             this.btnAddEmp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddEmp.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnAddEmp.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnAddEmp.Location = new System.Drawing.Point(158, 464);
+            this.btnAddEmp.Location = new System.Drawing.Point(417, 504);
             this.btnAddEmp.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnAddEmp.Name = "btnAddEmp";
             this.btnAddEmp.Size = new System.Drawing.Size(142, 34);
@@ -137,7 +157,7 @@ namespace Hospital_management_system
             this.btnEdite.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEdite.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnEdite.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnEdite.Location = new System.Drawing.Point(342, 464);
+            this.btnEdite.Location = new System.Drawing.Point(417, 464);
             this.btnEdite.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnEdite.Name = "btnEdite";
             this.btnEdite.Size = new System.Drawing.Size(143, 34);
@@ -153,7 +173,7 @@ namespace Hospital_management_system
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnDelete.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnDelete.Location = new System.Drawing.Point(518, 464);
+            this.btnDelete.Location = new System.Drawing.Point(593, 464);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(144, 34);
@@ -169,7 +189,7 @@ namespace Hospital_management_system
             this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRefresh.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnRefresh.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnRefresh.Location = new System.Drawing.Point(695, 464);
+            this.btnRefresh.Location = new System.Drawing.Point(752, 464);
             this.btnRefresh.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(117, 34);
@@ -180,7 +200,6 @@ namespace Hospital_management_system
             // 
             // lblSalaryEmp
             // 
-
             this.lblSalaryEmp.AutoSize = true;
             this.lblSalaryEmp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblSalaryEmp.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -190,53 +209,6 @@ namespace Hospital_management_system
             this.lblSalaryEmp.Size = new System.Drawing.Size(60, 23);
             this.lblSalaryEmp.TabIndex = 11;
             this.lblSalaryEmp.Text = "Salary";
-
-        /*    this.dataGridView.AllowUserToAddRows = false;
-            this.dataGridView.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ID,
-            this.fullNameColumn,
-            this.ageColumn,
-            this.genderColumn,
-            this.phoneColumn,
-            this.addressColumn});
-            this.dataGridView.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridView.Location = new System.Drawing.Point(2, 133);
-            this.dataGridView.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.dataGridView.MultiSelect = false;
-            this.dataGridView.Name = "dataGridView";
-            this.dataGridView.ReadOnly = true;
-            this.dataGridView.RowHeadersWidth = 62;
-            this.dataGridView.RowTemplate.Height = 35;
-            this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(873, 421);
-            this.dataGridView.TabIndex = 6;
-            this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
-            */
-
             // 
             // lblPhoneEmp
             // 
@@ -288,6 +260,7 @@ namespace Hospital_management_system
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
@@ -303,6 +276,7 @@ namespace Hospital_management_system
             this.dataGridView1.Location = new System.Drawing.Point(362, 189);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 29;
             this.dataGridView1.Size = new System.Drawing.Size(391, 190);
@@ -314,36 +288,42 @@ namespace Hospital_management_system
             this.Id.HeaderText = "Id";
             this.Id.MinimumWidth = 8;
             this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
             // 
             // NameEmp
             // 
             this.NameEmp.HeaderText = "name";
             this.NameEmp.MinimumWidth = 8;
             this.NameEmp.Name = "NameEmp";
+            this.NameEmp.ReadOnly = true;
             // 
             // AgeEmp
             // 
             this.AgeEmp.HeaderText = "Age";
             this.AgeEmp.MinimumWidth = 8;
             this.AgeEmp.Name = "AgeEmp";
+            this.AgeEmp.ReadOnly = true;
             // 
             // EmailEmp
             // 
             this.EmailEmp.HeaderText = "Email";
             this.EmailEmp.MinimumWidth = 8;
             this.EmailEmp.Name = "EmailEmp";
+            this.EmailEmp.ReadOnly = true;
             // 
             // PhoneEmp
             // 
             this.PhoneEmp.HeaderText = "Phone";
             this.PhoneEmp.MinimumWidth = 8;
             this.PhoneEmp.Name = "PhoneEmp";
+            this.PhoneEmp.ReadOnly = true;
             // 
             // SalaryEmp
             // 
             this.SalaryEmp.HeaderText = "Salary";
             this.SalaryEmp.MinimumWidth = 8;
             this.SalaryEmp.Name = "SalaryEmp";
+            this.SalaryEmp.ReadOnly = true;
             // 
             // numAgeEmpl
             // 
@@ -427,7 +407,7 @@ namespace Hospital_management_system
             "ID",
             "Name",
             "Phone"});
-            this.cmbSearchTypEmp.Location = new System.Drawing.Point(461, 144);
+            this.cmbSearchTypEmp.Location = new System.Drawing.Point(442, 147);
             this.cmbSearchTypEmp.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.cmbSearchTypEmp.Name = "cmbSearchTypEmp";
             this.cmbSearchTypEmp.Size = new System.Drawing.Size(63, 24);
@@ -435,7 +415,7 @@ namespace Hospital_management_system
             // 
             // lblSearch
             // 
-            this.lblSearch.Location = new System.Drawing.Point(391, 144);
+            this.lblSearch.Location = new System.Drawing.Point(362, 150);
             this.lblSearch.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.lblSearch.Name = "lblSearch";
             this.lblSearch.Size = new System.Drawing.Size(76, 24);
@@ -470,7 +450,7 @@ namespace Hospital_management_system
             this.searchrole.Items.AddRange(new object[] {
             "DOCTOR",
             "RESEPTIONIST"});
-            this.searchrole.Location = new System.Drawing.Point(583, 141);
+            this.searchrole.Location = new System.Drawing.Point(541, 115);
             this.searchrole.Name = "searchrole";
             this.searchrole.Size = new System.Drawing.Size(121, 24);
             this.searchrole.TabIndex = 53;
@@ -479,14 +459,14 @@ namespace Hospital_management_system
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(544, 142);
+            this.label1.Location = new System.Drawing.Point(502, 114);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 21);
             this.label1.TabIndex = 54;
             this.label1.Text = "Role";
             this.label1.UseMnemonic = false;
             // 
-            // Employeemanagement
+            // EmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -517,12 +497,9 @@ namespace Hospital_management_system
             this.Controls.Add(this.lblNameEmp);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-
-            this.Name = "Employeemanagement";
+            this.Name = "EmployeeForm";
             this.Text = "Employee";
-
-
-            //this.Load += new System.EventHandler(this.Employee_Load);
+            this.Load += new System.EventHandler(this.EmployeeForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -534,17 +511,17 @@ namespace Hospital_management_system
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
         }
 
         private void txtSalaryEmpl_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         #endregion

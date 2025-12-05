@@ -19,6 +19,7 @@
                         Phone = c.String(),
                         Email = c.String(),
                         Salary = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        Role = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.DoctorId);
             
@@ -66,6 +67,7 @@
                         Phone = c.String(),
                         Email = c.String(),
                         Salary = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        Role = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.ReseptionistId);
             
