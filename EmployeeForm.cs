@@ -1,3 +1,4 @@
+
 ﻿
 
 using System;
@@ -18,7 +19,7 @@ namespace Hospital_management_system
 
         private System.Windows.Forms.TextBox txtSpecialization;
         private System.Windows.Forms.Label lblSpecialization;
-
+        Role CurentUserRole;
 
         public EmployeeForm()
         {
@@ -428,7 +429,8 @@ namespace Hospital_management_system
 
         private void backButtonEmp_Click(object sender, EventArgs e)
         {
-            Form1 f = new Form1();
+            
+            Form1 f = new Form1(CurentUserRole);
             f.Show();
             this.Hide();
         }
@@ -778,211 +780,238 @@ using Hospital_management_system.Services;
 using System;
 using System.Linq;
 using System.Windows.Forms;
+=======
+﻿using System;
+using System.Windows.Forms;
+using Hospital_management_system.Models;
+using Hospital_management_system.Services;
+>>>>>>> 61de9913d32f080e1019f9da101215a57f815daf
 
 namespace Hospital_management_system
 {
     public partial class Employeemanagement : Form
     {
+        private EmployeeManagementServices service = new EmployeeManagementServices();
+
         public Employeemanagement()
         {
             InitializeComponent();
+            LoadAllEmployees();
+            FillSearchType();
         }
 
-        private EmployeeManagementServices employeeManagementServices = new EmployeeManagementServices();
-        private Employee selectedemployee = null;
-
-        //public lblSearchBy()
-        //{
-        //    InitializeComponent();
-        //}
-
-        private void Loademployee()
+        // ====================== تحميل البيانات ======================
+        private void LoadAllEmployees()
         {
-            try
+            dataGridView1.Rows.Clear();
+
+            if (searchrole.SelectedItem == null || searchrole.SelectedItem.ToString() == "Doctor")
             {
-                // ⚡️ مسح الصفوف فقط مع الحفاظ على الأعمدة
-                dataGridView1.Rows.Clear();
-
-                // ⚡️ جلب البيانات
-                var doctors = employeeManagementServices.getAllDoctor();
-
-                // ⚡️ إضافة البيانات مباشرة للجدول
-                foreach (var doctor in doctors)
+                foreach (var d in service.getAllDoctor())
                 {
-                    dataGridView1.Rows.Add(
-                        doctor.DoctorId,
-                        doctor.FullName,
-                        doctor.Age,
-                        //doctor.gender,
-                        doctor.Phone,
-                        doctor.Salary,
-                        doctor.Specialization
-                    );
-                }
-
-
-                var reseptionists = employeeManagementServices.getAllDoctor();
-
-                // ⚡️ إضافة البيانات مباشرة للجدول
-                foreach (var reseption in reseptionists)
-                {
-                    dataGridView1.Rows.Add(
-                        reseption.DoctorId,
-                        reseption.FullName,
-                        reseption.Age,
-                        //doctor.gender,
-                        reseption.Phone,
-                        reseption.Salary,
-                        reseption.Specialization
-                    );
+                    dataGridView1.Rows.Add(d.DoctorId, d.FullName, d.Age, d.Email, d.Phone, d.Salary);
                 }
             }
-            catch (Exception ex)
+
+            if (searchrole.SelectedItem?.ToString() == "Receptionist")
             {
-                MessageBox.Show($"Error: {ex.Message}");
+                foreach (var r in service.getAllreseptionist())
+                {
+                    dataGridView1.Rows.Add(r.ReseptionistId, r.FullName, r.Age, r.Email, r.Phone, r.Salary);
+                }
             }
         }
 
-        // دالة تفريغ الحقول
-        //private void ClearFields()
-        //{
-        //    txtNameEmpl.Clear();
-        //    numAgeEmpl.Value = 0;
-        //    gender.SelectedIndex = -1;
-        //    txtPhoneEmpl.Clear();
-
-        //    txtEmailEmpl.Clear();
-        //    selectedemployee = null;
-
-        //    تحديث حالة الأزرار بعد التفريغ
-
-        //}
-
-
-        private bool ValidateemployeeData()
+        private void FillSearchType()
         {
-            if (string.IsNullOrWhiteSpace(txtNameEmpl.Text))
-            {
-                MessageBox.Show("Please enter patient name", "Validation Error",
-                              MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtNameEmpl.Focus();
-                return false;
-            }
+            cmbSearchTypEmp.Items.Add("ID");
+            cmbSearchTypEmp.Items.Add("Name");
+            cmbSearchTypEmp.Items.Add("Phone");
 
-            if (string.IsNullOrWhiteSpace(txtPhoneEmpl.Text))
-            {
-                MessageBox.Show("Please enter phone number", "Validation Error",
-                              MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtPhoneEmpl.Focus();
-                return false;
-            }
-
-            if (numAgeEmpl.Value <= 0 || numAgeEmpl.Value > 120)
-            {
-                MessageBox.Show("Please enter valid age (1-120)", "Validation Error",
-                              MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                numAgeEmpl.Focus();
-                return false;
-            }
-            if (string.IsNullOrWhiteSpace(txtEmailEmpl.Text) || !txtEmailEmpl.Text.Contains("@"))
-            {
-                MessageBox.Show("please enert vilov email addres", "Error");
-                txtEmailEmpl.Focus();
-                return false;
-            }
-            if (!decimal.TryParse(txtSalaryEmpl.Text, out decimal salary) || salary <= 0)
-            {
-                MessageBox.Show(" please please enert vilov salary", "Error");
-                txtSalaryEmpl.Focus();
-                return false;
-            }
-            return true;
+            searchrole.Items.Add("Doctor");
+            searchrole.Items.Add("Receptionist");
         }
+
+        // ====================== زر الإضافة ======================
         private void btnAddEmp_Click(object sender, EventArgs e)
         {
-            try
-
+            if (cmRole.SelectedItem == null)
             {
-
-                if (!ValidateemployeeData())
-                    return;
-                Employee newemployee;
-                string role = cmRole.SelectedItem.ToString();
-                if (role == Role.DOCTOR.ToString()) {
-                    newemployee = new Doctor();
-                    newemployee.Role =Role.DOCTOR;
-                }
-                   
-
-                else {
-                    newemployee = new reseptionist();
-                    newemployee.Role = Role.RESEPTIONIST;
-                }
-                    
-
-
-                newemployee.FullName = txtNameEmpl.Text.Trim();
-                newemployee.Age = (int)numAgeEmpl.Value;
-                //Gender = cmbGender.SelectedItem?.ToString() ?? "Male",
-                newemployee.Phone = txtPhoneEmpl.Text.Trim();
-
-                
-                newemployee.Salary = Convert.ToInt32(txtSalaryEmpl.Text);
-                newemployee.Email = txtEmailEmpl.Text.Trim();
-
-                 bool success;
-
-                
-                    
-                    success = employeeManagementServices.addemployee(newemployee);
-
-                    if (success)
-                    {
-                        MessageBox.Show($"employee {newemployee.FullName} added successfully!",
-                                       "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        Loademployee();
-                        ClearFields();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Failed to add patient. Please try again.",
-                                       "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error adding patient: {ex.Message}",
-                               "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please select Role");
+                return;
             }
 
+            string role = cmRole.SelectedItem.ToString();
+            Employee emp = null;
 
+            if (role == "Doctor")
+            {
+                emp = new Doctor()
+                {
+                    FullName = txtNameEmpl.Text,
+                    Age = (int)numAgeEmpl.Value,
+                    Phone = txtPhoneEmpl.Text,
+                    Email = txtEmailEmpl.Text,
+                    Salary = int.Parse(txtSalaryEmpl.Text),
+                    Role = Role.DOCTOR,
+                    Specialization = "General"
+                };
+            }
+            else if (role == "Receptionist")
+            {
+                emp = new reseptionist()
+                {
+                    FullName = txtNameEmpl.Text,
+                    Age = (int)numAgeEmpl.Value,
+                    Phone = txtPhoneEmpl.Text,
+                    Email = txtEmailEmpl.Text,
+                    Salary = int.Parse(txtSalaryEmpl.Text),
+                    Role = Role.RESEPTIONIST
+                };
+            }
 
+            bool added = service.addemployee(emp);
 
+            if (added)
+            {
+                MessageBox.Show("Employee Added!");
+                LoadAllEmployees();
+            }
+            else
+            {
+                MessageBox.Show("Adding Failed");
+            }
         }
 
-     
-
-        
-
-        private void ClearFields()
+        // ====================== زر التعديل ======================
+        private void btnEdite_Click(object sender, EventArgs e)
         {
-            txtNameEmpl.Text = "";
-            numAgeEmpl.Value = 25;
-            txtEmailEmpl.Text = "";
-            txtPhoneEmpl.Text = "";
-            txtSalaryEmpl.Text = "";
-            txtNameEmpl.Focus();
+            if (dataGridView1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Select an employee!");
+                return;
+            }
+
+            int id = int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+            string role = searchrole.SelectedItem.ToString();
+
+            Employee emp = null;
+
+            if (role == "Doctor")
+            {
+                emp = new Doctor()
+                {
+                    DoctorId = id,
+                    FullName = txtNameEmpl.Text,
+                    Age = (int)numAgeEmpl.Value,
+                    Phone = txtPhoneEmpl.Text,
+                    Email = txtEmailEmpl.Text,
+                    Salary = int.Parse(txtSalaryEmpl.Text),
+                    Role = Role.DOCTOR,
+                    Specialization = "General"
+                };
+            }
+            else
+            {
+                emp = new reseptionist()
+                {
+                    ReseptionistId = id,
+                    FullName = txtNameEmpl.Text,
+                    Age = (int)numAgeEmpl.Value,
+                    Phone = txtPhoneEmpl.Text,
+                    Email = txtEmailEmpl.Text,
+                    Salary = int.Parse(txtSalaryEmpl.Text),
+                    Role = Role.RESEPTIONIST
+                };
+            }
+
+            bool updated = service.updateEmployee(emp);
+
+            if (updated)
+            {
+                MessageBox.Show("Employee Updated!");
+                LoadAllEmployees();
+            }
+            else
+            {
+                MessageBox.Show("Update Failed!");
+            }
         }
 
-        
+        // ====================== زر الحذف ======================
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Select row");
+                return;
+            }
+
+            int id = int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+            string r = searchrole.SelectedItem.ToString();
+
+            Role role = r == "Doctor" ? Role.DOCTOR : Role.RESEPTIONIST;
+
+            bool deleted = service.deletemployee(id, role);
+
+            if (deleted)
+            {
+                MessageBox.Show("Deleted!");
+                LoadAllEmployees();
+            }
+            else
+            {
+                MessageBox.Show("Delete Failed");
+            }
+        }
+
+        // ====================== زر إعادة التحميل ======================
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            LoadAllEmployees();
+        }
+
+        // ====================== زر البحث ======================
+        private void btnSearchEmp_Click(object sender, EventArgs e)
+        {
+            string type = cmbSearchTypEmp.SelectedItem?.ToString();
+            string value = txtsearchEmp.Text;
+
+            if (searchrole.SelectedItem.ToString() == "Doctor")
+            {
+                dataGridView1.Rows.Clear();
+                foreach (var d in service.Searchdoctors(type, value))
+                {
+                    dataGridView1.Rows.Add(d.DoctorId, d.FullName, d.Age, d.Email, d.Phone, d.Salary);
+                }
+            }
+            else
+            {
+                dataGridView1.Rows.Clear();
+                foreach (var r in service.searchreseptionisr(type, value))
+                {
+                    dataGridView1.Rows.Add(r.ReseptionistId, r.FullName, r.Age, r.Email, r.Phone, r.Salary);
+                }
+            }
+        }
+
+        // ====================== اختيار صف من الجدول ======================
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+
+            txtNameEmpl.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            numAgeEmpl.Value = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString());
+            txtEmailEmpl.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+            txtPhoneEmpl.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+            txtSalaryEmpl.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
+        }
 
         private void backButtonEmp_Click(object sender, EventArgs e)
         {
-            Form1 f = new Form1();
-            f.Show();
-            this.Hide();
+            this.Close();
         }
+
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
@@ -1063,3 +1092,6 @@ namespace Hospital_management_system
 
       */
          
+
+    
+

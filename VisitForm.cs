@@ -17,19 +17,46 @@ namespace Hospital_management_system
         private VisitsManagement visitService = new VisitsManagement();
         private Visit selectedVisit = null;
 
+
         // 🔹 قوائم للاقتراحات التلقائية
         private List<string> visitTypesList;
         private List<string> medicationExamples;
 
 
-        public VisitForm()
+       
+           // InitializeComponent();
+            // ⚡ تهيئة قوائم الاقتراحات
+           // InitializeAutoCompleteLists();
+
+        Role curentuserRole;
+        public VisitForm(Role curentuserRole)
         {
             InitializeComponent();
-            // ⚡ تهيئة قوائم الاقتراحات
-            InitializeAutoCompleteLists();
+                InitializeAutoCompleteLists();
+                this.curentuserRole = curentuserRole;
+            privilleges();
+            
+           
+
         }
 
 
+        private void privilleges()
+        {
+            if (this.curentuserRole == Role.ADMIN || this.curentuserRole == Role.RESEPTIONIST)
+            {
+                addButton.Enabled = false;
+                //addButton.BackColor = Color.DarkGray;
+                //addButton.ForeColor = Color.White;
+                editButton.Enabled = false;
+                //editButton.BackColor= Color.DarkGray;
+                //editButton.ForeColor = Color.White;
+                deleteButton.Enabled = false;
+                //deleteButton.BackColor = Color.DarkGray;
+                //deleteButton.ForeColor = Color.White;
+            }
+            
+        }
 
         // عند تحميل الفورم
         private void VisitForm_Load(object sender, EventArgs e)
@@ -506,7 +533,7 @@ namespace Hospital_management_system
 
         private void backButton_Click(object sender, EventArgs e)
         {
-            Form1 f = new Form1();
+            Form1 f = new Form1(curentuserRole);
             f.Show();
             this.Hide();
         }
@@ -555,6 +582,11 @@ namespace Hospital_management_system
         }
 
         private void topPan1_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
 
         }

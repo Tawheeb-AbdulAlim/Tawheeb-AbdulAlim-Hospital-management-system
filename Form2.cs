@@ -30,9 +30,9 @@ namespace Hospital_management_system
         }
 
         private void Form2_Load(object sender, EventArgs e)
+
         {
-            using (hospitaldbcontext db = new hospitaldbcontext())
-            {
+
 
                /* db.users.Add(new User { Username = "admin", PasswordHash = "admin" });
                 db.users.Add(new User { Username = "tawheeb", PasswordHash = "tawheeb" });
@@ -41,15 +41,31 @@ namespace Hospital_management_system
                 db.users.Add(new User { Username = "hamsa", PasswordHash = "hamsa" });
                 db.SaveChanges();*/
 
-            }
+
+            //////////////using (hospitaldbcontext db = new hospitaldbcontext())
+            //////////////{
+            //////////////    User user = new User();
+
+            //////////////    string Username = "admin  ";
+            //////////////   string PasswordHash = "admin  ";
+            //////////////    user= db.users.Where(u => u.Username == Username).FirstOrDefault();
+            /////////////    .users.Remove);
+            //////////////    db.SaveChanges();
+            //////////////}
         }
 
         private void button1_Click(object sender, EventArgs e)
 
         {
-            string usermane = username1.Text.Trim();
-            string password = password1.Text.Trim();
+
+            string usermane=username1.Text;
+            string password=password1.Text;
+            Role role = new Role();
+            
+           
+           
             // تحقق من أن الحقول ليست فارغة
+
             if (string.IsNullOrEmpty(usermane) || string.IsNullOrEmpty(password))
             {
                 MessageBox.Show("⚠️ الرجاء ملء كل الحقول!", "تنبيه",
@@ -59,30 +75,33 @@ namespace Hospital_management_system
 
             
 
-                            hospitaldbcontext db = new hospitaldbcontext();
-                        User u1 = db.users.Where(u => u.Username == usermane && u.PasswordHash == password).FirstOrDefault();
-                            if (u1 != null)
-                            {
-
-                                Form1 form = new Form1();
-                                form.Show();
-                                this.Hide();
-                            }
-                     
-
-                        else
-                        {
-                            MessageBox.Show("❌ اسم المستخدم أو كلمة المرور غير صحيحة. حاول مرة أخرى.");
-                            username1.Clear();
-                            password1.Focus();
-                        }
-                    
-                }
 
             
+            hospitaldbcontext db = new hospitaldbcontext();
+             
+            User u1= db.users.Where(u => u.Username == usermane && u.PasswordHash == password).FirstOrDefault();
+            if (u1!=null)
+            {
+                if (u1.Role == null) 
+                    MessageBox.Show("error: user role is null ");
+                if (Enum.TryParse<Role>(u1.Role, out role))
+                {
+                    
+                    Form1 form = new Form1(role);
+                    form.Show();
+                    this.Hide();
+                }
+                else
+                    MessageBox.Show("error of concert text to enum");
+                
+            }
+            else
+            {
+                MessageBox.Show("خطاء في اسم المستخدم او كلمة المرور");
+            }
+        }
 
-        
-
+                            
 
         private async void password1_TextChanged(object sender, EventArgs e)
         {

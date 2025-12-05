@@ -19,10 +19,45 @@ namespace Hospital_management_system
         private PatientManagement patientService = new PatientManagement();
         private Patient selectedPatient = null;
 
-        // ============ المنشئ ============
-        public lblSearchBy()
+        Role curentuserRole;
+        public lblSearchBy(Role role)
+
+
+        
+        
+
         {
             InitializeComponent();
+            this.curentuserRole = role;
+            privilleges();
+            
+            
+        }
+
+
+
+
+        private void privilleges() {
+            if (this.curentuserRole == Role.DOCTOR)
+            {
+                deleteButton.Enabled = false;
+                //deleteButton.BackColor = Color.Gray;
+                //deleteButton.ForeColor = Color.White;
+            }
+            if (this.curentuserRole == Role.ADMIN || this.curentuserRole == Role.DOCTOR) { 
+                addButton.Enabled = false;
+                //addButton.BackColor = Color.Gray;
+                //addButton.ForeColor = Color.White;
+
+                editButton.Enabled = false;
+                //editButton.BackColor = Color.Gray;
+                //editButton.ForeColor = Color.White;
+          
+            }
+            
+            
+   
+
         }
 
         // ============ دوال التحميل والتهيئة ============
@@ -38,6 +73,7 @@ namespace Hospital_management_system
         /// <summary>
         /// تحميل قائمة المرضى وعرضها في الجدول
         /// </summary>
+
         private void LoadPatients()
         {
             try
@@ -142,8 +178,9 @@ namespace Hospital_management_system
                 return false;
             }
 
-            // التحقق من العمر
-            if (numAge.Value <= 0 || numAge.Value > 120)
+
+            if (numAge.Value <= 0 || numAge.Value >120)
+
             {
                 MessageBox.Show("الرجاء إدخال عمر صحيح (1-120)", "خطأ في التحقق",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -532,7 +569,7 @@ namespace Hospital_management_system
         /// </summary>
         private void backButton_Click(object sender, EventArgs e)
         {
-            Form1 f = new Form1();
+            Form1 f = new Form1(curentuserRole);
             f.Show();
             this.Hide();
         }
@@ -560,6 +597,16 @@ namespace Hospital_management_system
 
 
         private void topPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void numAge_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView_CellContentClick_2(object sender, DataGridViewCellEventArgs e)
         {
 
         }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using Hospital_management_system.Services;
 
 namespace Hospital_management_system
 {
@@ -36,6 +37,7 @@ namespace Hospital_management_system
         {
 
 
+
            
 // في دالة InitializeComponent
 this.lblSpecialization = new System.Windows.Forms.Label();
@@ -53,6 +55,7 @@ this.txtSpecialization.Name = "txtSpecialization";
 this.txtSpecialization.Size = new System.Drawing.Size(200, 23);
 this.txtSpecialization.TabIndex = 6;
 this.txtSpecialization.Visible = false;
+
 
 
 
@@ -497,9 +500,11 @@ this.txtSpecialization.Visible = false;
             this.Controls.Add(this.lblNameEmp);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+
             this.Name = "EmployeeForm";
             this.Text = "Employee";
             this.Load += new System.EventHandler(this.EmployeeForm_Load);
+
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

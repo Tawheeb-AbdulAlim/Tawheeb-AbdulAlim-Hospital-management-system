@@ -129,6 +129,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(721, 317);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
             // 
             // VisitID
             // 
@@ -280,7 +281,7 @@
             this.label4.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(12, 341);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(136, 17);
+            this.label4.Size = new System.Drawing.Size(127, 16);
             this.label4.TabIndex = 22;
             this.label4.Text = "CurrentMedication";
             // 
